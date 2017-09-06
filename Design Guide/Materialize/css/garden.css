@@ -1,0 +1,64 @@
+html {
+    font-family: "Open Sans", sans-serif;    
+}
+
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+main {
+    flex: 1 0 auto;
+}
+
+footer {
+    background-color: #4CAF50 !important;   
+}
+
+.footer {
+    margin-bottom: 1rem;
+}
+
+div {
+    font-size: 1.05rem;
+}
+
+div h1 {
+    font-family: 'PT Serif', serif;
+    font-size: 3.6rem;
+    font-weight: 400;
+}
+
+.card-panel {
+    background-color: #FAFAFA !important;
+    padding-top: 0.5rem;
+}
+
+.artichoke {
+    background-color: #8B9474 !important;
+}
+
+.darkseagreen {
+    background-color: #8bbd8b !important;
+}
+
+.khaki {
+    background-color: #c1cc99 !important;
+}
+
+.sanddune {
+    background-color: #7b6c69 !important;
+}
+
+.alabaster {
+    background-color: #FAFAFA !important;
+}
+
+.balticsea {
+    color: #1A191F;
+}
+
+.khaki {
+    background-color: #7AA5AC !important;
+}
