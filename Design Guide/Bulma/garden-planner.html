@@ -1,19 +1,21 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Garden Planner</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="../../Design/Bulma/node_modules/bulma/css/bulma.css">
-    <link rel="stylesheet" href="css/garden.css">
 
-    <script async src="script/garden.js"></script>
-  </head>
-  <body>
-    <div class="container">
-      <nav class="navbar">
-        <div class="navbar-brand">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Garden Planner</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="../../Design/Bulma/node_modules/bulma/css/bulma.css">
+  <link rel="stylesheet" href="css/garden.css">
+
+  <script async src="script/garden.js"></script>
+</head>
+
+<body>
+  <div class="container">
+    <nav class="navbar">
+      <div class="navbar-brand">
         <a class="navbar-item" href="#">
           LOGO
         </a>
@@ -24,238 +26,306 @@
           <span></span>
         </div>
       </div>
-    
+
       <div class="navbar-menu">
         <div class="navbar-start">
-            <a class="navbar-item" href="garden-planner.html">
+          <a class="navbar-item" href="garden-planner.html">
               Garden Planner
             </a>
 
-            <a class="navbar-item" href="plants-borders.html">
+          <a class="navbar-item" href="plants-borders.html">
               Plants and borders
             </a>
-          </div>
-        
-          <div class="navbar-end">
-            <a class="navbar-item" href="profile.html">
-              <i class="fa fa-user"></i>
-            </a>     
-
-            <a class="navbar-item" href="logout.html">
-              Logout
-            </a>                   
-          </div>
         </div>
-      </nav>  
-    </div>
 
-        <section class="hero is-primary is-bold">
-            <div class="hero-body">
-              <div class="container">
-                <h1 class="title">
-                  Garden Planner
-                </h1>
-              </div>
-            </div>
-          </section>
-        <br />
+        <div class="navbar-end">
+          <a class="navbar-item" href="profile.html">
+              <i class="fa fa-user"></i>
+            </a>
 
+          <a class="navbar-item" href="logout.html">
+              Logout
+            </a>
+        </div>
+      </div>
+    </nav>
+  </div>
+
+  <section class="hero is-primary is-bold">
+    <div class="hero-body">
       <div class="container">
-        <div class="columns">
-          <div class="column">            
-            <div id="new-job">
-                <button class="button is-info modal-button" data-target="modal-job">
+        <h1 class="title">
+          Garden Planner
+        </h1>
+      </div>
+    </div>
+  </section>
+  <br />
+
+  <div class="container">
+    <div class="columns">
+      <div class="column">
+        <div id="new-job">
+          <button class="button is-info modal-button" data-target="modal-job">
                     <span class="icon">
                         <i class="fa fa-leaf"></i>
                       </span>
                       <span>Add Job</span>
                 </button>
+        </div>
+
+        <div class="card">
+          <header class="card-header current" id="current">
+            <p class="card-header-title">
+              Jobs to do right now
+            </p>
+          </header>
+
+          <div class="card-content">
+            <div class="notification is-info">
+              <button class="delete"></button>
+              <p><strong>Sow: Carrots</strong></p>
+              <p><em>Date: May</em></p>
+              <p>Location: <span class="tag is-primary">Veg bed</span></p>
+              <p>Direct sow</p>
             </div>
 
-            <div class="card">
-              <header class="card-header current" id="current">
-                <p class="card-header-title">
-                  Jobs to do right now
-                </p>              
-              </header>
-
-              <div class="card-content">
-                <div class="notification is-info">
-                  <button class="delete"></button>
-                  <p><strong>Sow: Carrots</strong></p>
-                  <p><em>Date: May</em></p>
-                  <p>Location: <span class="tag is-primary">Veg bed</span></p>
-                  <p>Direct sow</p>
-                </div>
-
-                <div class="notification is-info">
-                  <button class="delete"></button>
-                  <p><strong>Fertilize</strong></p>
-                  <p><em>Date: 10-20 May</em></p>
-                  <p>Fertilize the whole yard</p>
-                </div>
-              </div>
-            </div>
-
-            <div class="card">
-              <header class="card-header soon" id="soon">
-                <p class="card-header-title">
-                  Jobs in the next few weeks
-                </p>              
-              </header>
-
-              <div class="card-content">
-                <div class="notification is-info">
-                  <button class="delete"></button>
-                  <p><strong>Cut Back: Delphinium</strong></p>
-                  <p><em>Date: Early Summer</em></p>
-                  <p>Location: <span class="tag is-primary">Main border</span></p>
-                </div>
-              </div>
-            </div>
-
-            <div class="card">
-              <header class="card-header later" id="later">
-                <p class="card-header-title">
-                  Future jobs
-                </p>              
-              </header>
-
-              <div class="card-content">
-                <div class="notification is-info">
-                  <button class="delete"></button>
-                  <p><strong>Divide: Hosta, Iris</strong></p>
-                  <p><em>Date: Late summer</em></p>
-                  <p>Location: <span class="tag is-primary">Front yard</span><span class="tag is-primary">Main border</span></p>
-                  <p>Optional description</p>
-                </div>
-
-                <div class="notification is-info">
-                  <button class="delete"></button>
-                  <p><strong>Prune: Clematis</strong></p>
-                  <p><em>Date: Around the 9th of October</em></p>
-                </div>
-              </div>
-            </div>
-
-          </div>
-
-          <div class="column is-one-quarter">
-            <ul class="link-list">
-                <li><a href="#new-job">New job</a></li>
-                <li><a href="#current">Right now</a></li>
-                <li><a href="#soon">Next few weeks</a></li>
-                <li><a href="#later">Future jobs</a></li>         
-            </ul>            
-          </div>
-
-          <div class="modal" id="modal-job">
-            <div class="modal-background"></div>
-            <div class="modal-card">
-              <header class="modal-card-head">
-                <p class="modal-card-title">Add a job</p>
-                <!-- <button class="delete" aria-label="close"></button> -->
-              </header>
-              <section class="modal-card-body">
-                <!-- Content ... -->
-                <div class="field">
-                    <label class="label" for="job-name" type="text">
-                        What: 
-                    </label>
-                    <div class="control">
-                        <input class="input" type="text" id="job-name">
-                    </div>
-                </div>
-
-                <div class="field">
-                    <label class="label" for="job-name" type="text">
-                        When: 
-                    </label>
-                    <div class="control">
-                        <p><label class="radio">
-                          <input type="radio" name="answer">
-                          Season
-                        </label></p>
-                      <p><label class="radio">
-                        <input type="radio" name="answer">
-                        Month range
-                      </label></p>
-                      <p><label class="radio">
-                        <input type="radio" name="answer">
-                        Day range
-                      </label></p>                                           
-                    </div>                    
-                </div>
-
-                <div class="location-list">
-                    <label class="label" for="job-name" type="text">
-                        Where: 
-                    </label>
-
-                  <div class="columns">
-                    <div class="column">
-                        <div class="field">
-                            <input class="is-checkbox is-block is-info" id="chkLoc1" type="checkbox" name="chkLoc1">
-                            <label for="chkLoc1">Main border</label>
-                          </div>
-        
-                          <div class="field">
-                            <input class="is-checkbox is-block is-info" id="chkLoc2" type="checkbox" name="chkLoc2">
-                            <label for="chkLoc2">Veg bed</label>
-                          </div>
-        
-                          <div class="field">
-                            <input class="is-checkbox is-block is-info" id="chkLoc3" type="checkbox" name="chkLoc3">
-                            <label for="chkLoc3">Front yard</label>
-                          </div>
-        
-                          <div class="field">
-                            <input class="is-checkbox is-block is-info" id="chkLoc4" type="checkbox" name="chkLoc4">
-                            <label for="chkLoc4">Side border</label>
-                          </div>
-                    </div>
-
-                    <div class="column">
-                        <div class="field">
-                            <input class="is-checkbox is-block is-info" id="chkLoc5" type="checkbox" name="chkLoc5">
-                            <label for="chkLoc5">Back lawn</label>
-                          </div>
-        
-                          <div class="field">
-                            <input class="is-checkbox is-block is-info" id="chkLoc6" type="checkbox" name="chkLoc6">
-                            <label for="chkLoc6">Patio pots</label>
-                          </div>
-        
-                          <div class="field">
-                            <input class="is-checkbox is-block is-info" id="chkLoc7" type="checkbox" name="chkLoc7">
-                            <label for="chkLoc7">Indoor plants</label>
-                          </div>
-        
-                          <div class="field">
-                            <input class="is-checkbox is-block is-info" id="chkLoc8" type="checkbox" name="chkLoc8">
-                            <label for="chkLoc8">Allotment</label>
-                          </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="field">
-                  <label class="label" for="job-name" type="text">
-                      How: 
-                  </label>
-
-                  <div class="control">
-                    <textarea class="textarea" type="text" rows="2" placeholder="optional"></textarea>
-                  </div>
-                </div>
-              </section>
-              <footer class="modal-card-foot">
-                <button class="button is-success">Add</button>
-                <button class="button">Cancel</button>
-              </footer>
+            <div class="notification is-info">
+              <button class="delete"></button>
+              <p><strong>Fertilize</strong></p>
+              <p><em>Date: 10-20 May</em></p>
+              <p>Fertilize the whole yard</p>
             </div>
           </div>
         </div>
-      </div>     
-  </body>
+
+        <div class="card">
+          <header class="card-header soon" id="soon">
+            <p class="card-header-title">
+              Jobs in the next few weeks
+            </p>
+          </header>
+
+          <div class="card-content">
+            <div class="notification is-info">
+              <button class="delete"></button>
+              <p><strong>Cut Back: Delphinium</strong></p>
+              <p><em>Date: Early Summer</em></p>
+              <p>Location: <span class="tag is-primary">Main border</span></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <header class="card-header later" id="later">
+            <p class="card-header-title">
+              Future jobs
+            </p>
+          </header>
+
+          <div class="card-content">
+            <div class="notification is-info">
+              <button class="delete"></button>
+              <p><strong>Divide: Hosta, Iris</strong></p>
+              <p><em>Date: Late summer</em></p>
+              <p>Location: <span class="tag is-primary">Front yard</span><span class="tag is-primary">Main border</span></p>
+              <p>Optional description</p>
+            </div>
+
+            <div class="notification is-info">
+              <button class="delete"></button>
+              <p><strong>Prune: Clematis</strong></p>
+              <p><em>Date: Around the 9th of October</em></p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="column is-one-quarter">
+        <ul class="link-list">
+          <li><a href="#new-job">New job</a></li>
+          <li><a href="#current">Right now</a></li>
+          <li><a href="#soon">Next few weeks</a></li>
+          <li><a href="#later">Future jobs</a></li>
+        </ul>
+      </div>
+
+      <div class="modal" id="modal-job">
+        <div class="modal-background"></div>
+        <div class="modal-card">
+          <header class="modal-card-head">
+            <p class="modal-card-title">Add a job</p>
+            <!-- <button class="delete" aria-label="close"></button> -->
+          </header>
+          <section class="modal-card-body">
+            <!-- Content ... -->
+            <div class="field">
+              <label class="label" for="job-name" type="text">
+                        What: 
+                    </label>
+              <div class="control">
+                <input class="input" type="text" id="job-name">
+              </div>
+            </div>
+
+            <div class="field">
+              <label class="label" for="job-name" type="text">
+                        When: 
+                    </label>
+
+              <div class="columns">
+                <div class="column">
+                  <div class="control">
+                    <p><label class="radio">
+                              <input type="radio" name="answer">
+                              Month range
+                            </label></p>
+                    <p><label class="radio">
+                              <input type="radio" name="answer">
+                              Day range
+                            </label></p>
+                  </div>
+                </div>
+
+                <div class="column">
+                  <div class="field">
+                    <input class="is-checkbox is-block is-info" id="chkLoc1" type="checkbox" name="chkLoc1">
+                    <label for="chMonthJan">January</label>
+                  </div>
+
+                  <div class="field">
+                    <input class="is-checkbox is-block is-info" id="chkLoc1" type="checkbox" name="chkLoc1">
+                    <label for="chkMonthFeb">February</label>
+                  </div>
+
+                  <div class="field">
+                    <input class="is-checkbox is-block is-info" id="chkLoc1" type="checkbox" name="chkLoc1">
+                    <label for="chkMonthMarch">March</label>
+                  </div>
+
+                  <div class="field">
+                    <input class="is-checkbox is-block is-info" id="chkLoc1" type="checkbox" name="chkLoc1">
+                    <label for="chkMonthApril">April</label>
+                  </div>
+                </div>
+
+                <div class="column">
+                    <div class="field">
+                        <input class="is-checkbox is-block is-info" id="chkLoc1" type="checkbox" name="chkLoc1">
+                        <label for="chMonthMay">May</label>
+                      </div>
+    
+                      <div class="field">
+                        <input class="is-checkbox is-block is-info" id="chkLoc1" type="checkbox" name="chkLoc1">
+                        <label for="chkMonthJune">June</label>
+                      </div>
+    
+                      <div class="field">
+                        <input class="is-checkbox is-block is-info" id="chkLoc1" type="checkbox" name="chkLoc1">
+                        <label for="chkMonthJuly">July</label>
+                      </div>
+    
+                      <div class="field">
+                        <input class="is-checkbox is-block is-info" id="chkLoc1" type="checkbox" name="chkLoc1">
+                        <label for="chkMonthAug">August</label>
+                      </div>
+                </div>
+
+                <div class="column">
+                    <div class="field">
+                        <input class="is-checkbox is-block is-info" id="chkLoc1" type="checkbox" name="chkLoc1">
+                        <label for="chkMonthSept">September</label>
+                      </div>
+    
+                      <div class="field">
+                        <input class="is-checkbox is-block is-info" id="chkLoc1" type="checkbox" name="chkLoc1">
+                        <label for="chkMonthOct">October</label>
+                      </div>
+    
+                      <div class="field">
+                        <input class="is-checkbox is-block is-info" id="chkLoc1" type="checkbox" name="chkLoc1">
+                        <label for="chkMonthNov">November</label>
+                      </div>
+    
+                      <div class="field">
+                        <input class="is-checkbox is-block is-info" id="chkLoc1" type="checkbox" name="chkLoc1">
+                        <label for="chkMonthDec">December</label>
+                      </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="location-list">
+              <label class="label" for="job-name" type="text">
+                        Where: 
+                    </label>
+
+              <div class="columns">
+                <div class="column">
+                  <div class="field">
+                    <input class="is-checkbox is-block is-info" id="chkLoc1" type="checkbox" name="chkLoc1">
+                    <label for="chkLoc1">Main border</label>
+                  </div>
+
+                  <div class="field">
+                    <input class="is-checkbox is-block is-info" id="chkLoc2" type="checkbox" name="chkLoc2">
+                    <label for="chkLoc2">Veg bed</label>
+                  </div>
+
+                  <div class="field">
+                    <input class="is-checkbox is-block is-info" id="chkLoc3" type="checkbox" name="chkLoc3">
+                    <label for="chkLoc3">Front yard</label>
+                  </div>
+
+                  <div class="field">
+                    <input class="is-checkbox is-block is-info" id="chkLoc4" type="checkbox" name="chkLoc4">
+                    <label for="chkLoc4">Side border</label>
+                  </div>
+                </div>
+
+                <div class="column">
+                  <div class="field">
+                    <input class="is-checkbox is-block is-info" id="chkLoc5" type="checkbox" name="chkLoc5">
+                    <label for="chkLoc5">Back lawn</label>
+                  </div>
+
+                  <div class="field">
+                    <input class="is-checkbox is-block is-info" id="chkLoc6" type="checkbox" name="chkLoc6">
+                    <label for="chkLoc6">Patio pots</label>
+                  </div>
+
+                  <div class="field">
+                    <input class="is-checkbox is-block is-info" id="chkLoc7" type="checkbox" name="chkLoc7">
+                    <label for="chkLoc7">Indoor plants</label>
+                  </div>
+
+                  <div class="field">
+                    <input class="is-checkbox is-block is-info" id="chkLoc8" type="checkbox" name="chkLoc8">
+                    <label for="chkLoc8">Allotment</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="field">
+              <label class="label" for="job-name" type="text">
+                      How: 
+                  </label>
+
+              <div class="control">
+                <textarea class="textarea" type="text" rows="2" placeholder="optional"></textarea>
+              </div>
+            </div>
+          </section>
+          <footer class="modal-card-foot">
+            <button class="button is-success">Add</button>
+            <button class="button">Cancel</button>
+          </footer>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
 </html>
