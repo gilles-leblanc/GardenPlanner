@@ -42,6 +42,19 @@ header.later {
     right: 0.5em;
 } 
 
+div#new-job {
+    margin-bottom: 1em;
+}
+
+.link-list {
+    position: fixed;
+    border-style: solid;
+    border-left-color: #76B566;
+    border-width: 0px;
+    border-left-width: 1px;
+    padding-left: 0.5em;
+}
+
 .primary-light { background-color: #76B566; }
 .primary-color { background-color: #4CAF50; } 
 .primary-dark { background-color: #54965B; }

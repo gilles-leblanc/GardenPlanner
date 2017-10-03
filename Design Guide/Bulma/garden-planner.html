@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="../../Design/Bulma/node_modules/bulma/css/bulma.css">
     <link rel="stylesheet" href="css/garden.css">
+
+    <script async src="script/garden.js"></script>
   </head>
   <body>
     <div class="container">
@@ -25,23 +27,29 @@
     
       <div class="navbar-menu">
         <div class="navbar-start">
-            <a class="navbar-item">
+            <a class="navbar-item" href="garden-planner.html">
               Garden Planner
             </a>
 
-            <a class="navbar-item">
+            <a class="navbar-item" href="plants-borders.html">
               Plants and borders
             </a>
           </div>
         
           <div class="navbar-end">
-            <!-- navbar items -->
+            <a class="navbar-item" href="profile.html">
+              <i class="fa fa-user"></i>
+            </a>     
+
+            <a class="navbar-item" href="logout.html">
+              Logout
+            </a>                   
           </div>
         </div>
       </nav>  
     </div>
 
-        <section class="hero is-primary">
+        <section class="hero is-primary is-bold">
             <div class="hero-body">
               <div class="container">
                 <h1 class="title">
@@ -54,9 +62,18 @@
 
       <div class="container">
         <div class="columns">
-          <div class="column">
+          <div class="column">            
+            <div id="new-job">
+                <button class="button is-info modal-button" data-target="modal-job">
+                    <span class="icon">
+                        <i class="fa fa-leaf"></i>
+                      </span>
+                      <span>Add Job</span>
+                </button>
+            </div>
+
             <div class="card">
-              <header class="card-header current">
+              <header class="card-header current" id="current">
                 <p class="card-header-title">
                   Jobs to do right now
                 </p>              
@@ -81,7 +98,7 @@
             </div>
 
             <div class="card">
-              <header class="card-header soon">
+              <header class="card-header soon" id="soon">
                 <p class="card-header-title">
                   Jobs in the next few weeks
                 </p>              
@@ -98,7 +115,7 @@
             </div>
 
             <div class="card">
-              <header class="card-header later">
+              <header class="card-header later" id="later">
                 <p class="card-header-title">
                   Future jobs
                 </p>              
@@ -123,8 +140,122 @@
 
           </div>
 
-        </div>
-      </div>
+          <div class="column is-one-quarter">
+            <ul class="link-list">
+                <li><a href="#new-job">New job</a></li>
+                <li><a href="#current">Right now</a></li>
+                <li><a href="#soon">Next few weeks</a></li>
+                <li><a href="#later">Future jobs</a></li>         
+            </ul>            
+          </div>
 
+          <div class="modal" id="modal-job">
+            <div class="modal-background"></div>
+            <div class="modal-card">
+              <header class="modal-card-head">
+                <p class="modal-card-title">Add a job</p>
+                <!-- <button class="delete" aria-label="close"></button> -->
+              </header>
+              <section class="modal-card-body">
+                <!-- Content ... -->
+                <div class="field">
+                    <label class="label" for="job-name" type="text">
+                        What: 
+                    </label>
+                    <div class="control">
+                        <input class="input" type="text" id="job-name">
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label class="label" for="job-name" type="text">
+                        When: 
+                    </label>
+                    <div class="control">
+                        <p><label class="radio">
+                          <input type="radio" name="answer">
+                          Season
+                        </label></p>
+                      <p><label class="radio">
+                        <input type="radio" name="answer">
+                        Month range
+                      </label></p>
+                      <p><label class="radio">
+                        <input type="radio" name="answer">
+                        Day range
+                      </label></p>                                           
+                    </div>                    
+                </div>
+
+                <div class="location-list">
+                    <label class="label" for="job-name" type="text">
+                        Where: 
+                    </label>
+
+                  <div class="columns">
+                    <div class="column">
+                        <div class="field">
+                            <input class="is-checkbox is-block is-info" id="chkLoc1" type="checkbox" name="chkLoc1">
+                            <label for="chkLoc1">Main border</label>
+                          </div>
+        
+                          <div class="field">
+                            <input class="is-checkbox is-block is-info" id="chkLoc2" type="checkbox" name="chkLoc2">
+                            <label for="chkLoc2">Veg bed</label>
+                          </div>
+        
+                          <div class="field">
+                            <input class="is-checkbox is-block is-info" id="chkLoc3" type="checkbox" name="chkLoc3">
+                            <label for="chkLoc3">Front yard</label>
+                          </div>
+        
+                          <div class="field">
+                            <input class="is-checkbox is-block is-info" id="chkLoc4" type="checkbox" name="chkLoc4">
+                            <label for="chkLoc4">Side border</label>
+                          </div>
+                    </div>
+
+                    <div class="column">
+                        <div class="field">
+                            <input class="is-checkbox is-block is-info" id="chkLoc5" type="checkbox" name="chkLoc5">
+                            <label for="chkLoc5">Back lawn</label>
+                          </div>
+        
+                          <div class="field">
+                            <input class="is-checkbox is-block is-info" id="chkLoc6" type="checkbox" name="chkLoc6">
+                            <label for="chkLoc6">Patio pots</label>
+                          </div>
+        
+                          <div class="field">
+                            <input class="is-checkbox is-block is-info" id="chkLoc7" type="checkbox" name="chkLoc7">
+                            <label for="chkLoc7">Indoor plants</label>
+                          </div>
+        
+                          <div class="field">
+                            <input class="is-checkbox is-block is-info" id="chkLoc8" type="checkbox" name="chkLoc8">
+                            <label for="chkLoc8">Allotment</label>
+                          </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="field">
+                  <label class="label" for="job-name" type="text">
+                      How: 
+                  </label>
+
+                  <div class="control">
+                    <textarea class="textarea" type="text" rows="2" placeholder="optional"></textarea>
+                  </div>
+                </div>
+              </section>
+              <footer class="modal-card-foot">
+                <button class="button is-success">Add</button>
+                <button class="button">Cancel</button>
+              </footer>
+            </div>
+          </div>
+        </div>
+      </div>     
   </body>
 </html>

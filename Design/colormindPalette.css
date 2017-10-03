@@ -1,5 +1,19 @@
-FAFAFA
-7AA5AC
-159228
-7B6C69
-1A181F
+.a { color: #FAFAFA; }
+.b { color: #7AA5AC; }
+.c { color: #159228; } // -
+.d { color: #7B6C69; }
+.d { color: #1A181F; }
+
+
+.primary-light { color: #76B566; }
+.primary-color { color: #4CAF50; } 
+.primary-dark { color: #54965B; }
+.secondary-color { color: #9E854D; }
+.secondary-dark { color: #555645; }
+
+/* 9E854D
+76B566
+4CAF50
+54965B
+555645 */
+
