@@ -1,65 +1,10 @@
-<nav class="navbar primary-color">
-    <div class="navbar-brand">
-    </div>
-
-    <div class="navbar-menu">
-        <div class="navbar-start">
+<div class='container-fluid'>
+    <div class='row'>
+        <div class='col-sm-3'>
+            <nav-menu></nav-menu>
         </div>
-
-        <div class="navbar-end">
-            <!-- navbar items -->
-            <div class="navbar-item has-text-white">
-                <p>Already a member?</p>
-            </div>
-
-            <div class="navbar-item">
-                <div class="field is-grouped">
-                    <p class="control">
-                        <a class="bd-tw-button button" href="login.html">Login</a>
-                    </p>
-                </div>
-            </div>
+        <div class='col-sm-9 body-content'>
+            <router-outlet></router-outlet>
         </div>
     </div>
-</nav>
-
-<section class="hero is-primary is-medium">
-    <div class="hero-body">
-        <div class="container">
-            <h1 class="title is-size-1">
-                Tomato Stake
-            </h1>
-            <h2 class="subtitle is-size-4">
-                Your garden planner
-            </h2>
-        </div>
-    </div>
-</section>
-
-<section class="section">
-    <div class="tile is-ancestor">
-        <div class="tile is-5 is-vertical is-parent">
-            <div class="tile is-child box">
-                <p>Create a catalog of your plants, beds and borders.</p>
-                <br />
-                <p>Keep notes such as which plants to cut back, which plants to dead head and which are better to leave as is.</p>
-            </div>
-
-            <div class="tile is-child box">
-                <p>Plan flexible jobs for your garden and keep track of them through our calendar.</p>
-                <br />
-                <p>Things like dividing your perenials, starting seeds or when to trim your box.</p>
-            </div>
-        </div>
-
-        <div class="tile is-parent">
-            <div class="tile is-child box splash">
-            </div>
-        </div>
-    </div>
-</section>
-
-<section class="section has-text-centered">
-    <a class="button is-primary is-medium" href="join.html">Join</a>
-    <a class="button is-info is-medium" href="login.html">Login</a>
-</section>
+</div>
