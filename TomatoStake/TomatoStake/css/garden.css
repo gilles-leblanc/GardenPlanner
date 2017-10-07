@@ -1,0 +1,66 @@
+
+div.splash {
+    background-image: url("../images/tomatoes.jpg");
+    background-size: cover;
+}
+
+div.login-splash {
+    background-image: url("../images/lettuce.jpg");
+    background-size: cover;
+}
+
+.login-control {
+    margin: 0.5em;
+}
+
+div.card {
+    margin-bottom: 2em;
+}
+
+.card-header-title {
+    color: white;
+}
+
+div.card div.card > header > p.card-header-title {
+    color: black;
+}
+
+header.current {
+    background-color: #76B566;    
+}
+
+header.soon {
+    background-color: #54965B;
+}
+
+header.later {
+    background-color: #555645;
+}
+
+.tag {
+    margin-right: 0.5em;
+}
+
+.notification > .check {
+    position: absolute;
+    right: 0.5em;
+} 
+
+div#new-job {
+    margin-bottom: 1em;
+}
+
+.link-list {
+    position: fixed;
+    border-style: solid;
+    border-left-color: #76B566;
+    border-width: 0px;
+    border-left-width: 1px;
+    padding-left: 0.5em;
+}
+
+.primary-light { background-color: #76B566; }
+.primary-color { background-color: #4CAF50; } 
+.primary-dark { background-color: #54965B; }
+.secondary-color { background-color: #9E854D; }
+.secondary-dark { background-color: #555645; }
