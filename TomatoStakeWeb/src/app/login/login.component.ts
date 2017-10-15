@@ -5,13 +5,15 @@ import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'login',
-  template: `
-    <h2>LOGIN</h2>
-    <p>{{message}}</p>
-    <p>
-      <button (click)="login()"  *ngIf="!authService.isLoggedIn">Login</button>
-      <button (click)="logout()" *ngIf="authService.isLoggedIn">Logout</button>
-    </p>`
+  templateUrl: './login.component.html',
+  styleUrls: [ './login.component.css' ]
+  // `
+  //   <h2>LOGIN</h2>
+  //   <p>{{message}}</p>
+  //   <p>
+  //     <button (click)="login()"  *ngIf="!authService.isLoggedIn">Login</button>
+  //     <button (click)="logout()" *ngIf="authService.isLoggedIn">Logout</button>
+  //   </p>`
 })
 export class LoginComponent {
   message: string;
@@ -32,7 +34,7 @@ export class LoginComponent {
       if (this.authService.isLoggedIn) {
         // Get the redirect URL from our auth service
         // If no redirect has been set, use the default
-        let redirect = this.authService.redirectUrl ? this.authService.redirectUrl : '/crisis-center/admin';
+        let redirect = this.authService.redirectUrl ? this.authService.redirectUrl : '/planner';
 
         // Redirect the user
         this.router.navigate([redirect]);
