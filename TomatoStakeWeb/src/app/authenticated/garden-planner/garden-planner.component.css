@@ -1,0 +1,28 @@
+header.current {
+  background-color: #76B566;    
+}
+
+header.soon {
+  background-color: #54965B;
+}
+
+header.later {
+  background-color: #555645;
+}
+
+div#new-job {
+  margin-bottom: 1em;
+}
+
+.link-list {
+  position: fixed;
+  border-style: solid;
+  border-left-color: #76B566;
+  border-width: 0px;
+  border-left-width: 1px;
+  padding-left: 0.5em;
+}
+
+.card-header-title {
+  color: white;
+}

@@ -5,7 +5,7 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'planner',
   templateUrl: './garden-planner.component.html',
-  // styleUrls: [ './landing.component.css' ]
+  styleUrls: [ './garden-planner.component.css' ]
 })
 export class GardenPlannerComponent {
   

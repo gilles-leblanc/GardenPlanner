@@ -1,0 +1,68 @@
+<navbar></navbar>
+
+<section class="hero is-primary is-bold">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title">
+        Plants and borders
+      </h1>
+    </div>
+  </div>
+</section>
+<br />
+
+<div class="container">
+  <table class="table is-striped is-fullwidth">
+    <thead>
+      <tr>
+        <th>Plant</th>
+        <th>Locations</th>
+        <th>Notes</th>
+        <th>Jobs</th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+    </tbody>
+  </table>
+
+  <button class="button is-info">
+    <span class="icon">
+      <i class="fa fa-leaf"></i>
+    </span>
+    <span>Add Plant</span>
+  </button>
+
+  <button class="button is-info modal-button" data-target="modal-location">
+    <span class="icon">
+      <i class="fa fa-plus"></i>
+    </span>
+    <span>Add Location</span>
+  </button>
+
+  <div class="modal" id="modal-location">
+    <div class="modal-background"></div>
+    <div class="modal-card">
+      <header class="modal-card-head">
+        <p class="modal-card-title">Add a new location (ie: bed, border, etc.)</p>
+        <!-- <button class="delete" aria-label="close"></button> -->
+      </header>
+      <section class="modal-card-body">
+        <!-- Content ... -->
+        <div class="field">
+          <label class="label" for="new-location" type="text">
+            Location Name:
+          </label>
+          <div class="control">
+            <input class="input" type="text" id="new-location">
+          </div>
+        </div>
+      </section>
+      <footer class="modal-card-foot">
+        <button class="button is-success">Add</button>
+        <button class="button">Cancel</button>
+      </footer>
+    </div>
+  </div>
+</div>
