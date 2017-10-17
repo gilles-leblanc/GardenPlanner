@@ -15,7 +15,7 @@
   <div class="columns">
     <div class="column">
       <div id="new-job">
-        <button class="button is-info modal-button" data-target="modal-job">
+        <button class="button is-info modal-button" data-target="modal-job" (click)="openModal()">
           <span class="icon">
             <i class="fa fa-leaf"></i>
           </span>
@@ -153,7 +153,7 @@
       </ul>
     </div>
 
-    <div class="modal" id="modal-job">
+    <div class="modal" [class.is-active]="isModalVisible" id="modal-job">
       <div class="modal-background"></div>
       <div class="modal-card">
         <header class="modal-card-head">
@@ -324,7 +324,7 @@
         </section>
         <footer class="modal-card-foot">
           <button class="button is-success">Add</button>
-          <button class="button">Cancel</button>
+          <button class="button" (click)="closeModal()">Cancel</button>
         </footer>
       </div>
     </div>
