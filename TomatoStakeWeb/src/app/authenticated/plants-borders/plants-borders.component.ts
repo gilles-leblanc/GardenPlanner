@@ -1,27 +1,15 @@
 // The plants and borders component which displays the user's garden borders and plants
 
-import { Component, HostListener } from '@angular/core';
+import { Component } from '@angular/core';
+import { ModalHandler } from '../modal';
 
 @Component({
   selector: 'plants-borders',
   templateUrl: './plants-borders.component.html',
   // styleUrls: [ './landing.component.css' ]
 })
-export class PlantsBordersComponent {
-  isModalVisible: boolean;
+export class PlantsBordersComponent extends ModalHandler {
   
-  openModal(): void {
-    this.isModalVisible = true;
-  }  
-
-  closeModal(): void {
-    this.isModalVisible = false;
-  }
-
-  @HostListener('window:keydown', ['$event'])
-  keyboardInput(event: KeyboardEvent) {
-    this.closeModal();
-  }
 }
 
 
