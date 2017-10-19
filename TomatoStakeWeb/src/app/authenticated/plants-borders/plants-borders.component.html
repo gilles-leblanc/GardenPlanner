@@ -24,6 +24,13 @@
     </thead>
 
     <tbody>
+      <tr *ngFor="let plant of plants">
+          <td>{{plant.name}}</td>
+          <td><span class="tag is-primary">Main border</span></td>
+          <td>{{plant.notes}}</td>
+          <td><a>Prune</a></td>
+          <td><span class="icon has-text-warning"><i class="fa fa-pencil"></i></span> <span class="icon has-text-warning"><i class="fa fa-trash-o"></i></span></td>
+      </tr>
     </tbody>
   </table>
 
