@@ -3,6 +3,7 @@
 import { HostListener } from '@angular/core';
 
 export class ModalHandler {
+  readonly escape_keycode = 27;
   isModalVisible: boolean;
   
   openModal(): void {
@@ -15,6 +16,8 @@ export class ModalHandler {
 
   @HostListener('window:keydown', ['$event'])
   keyboardInput(event: KeyboardEvent) {
-    this.closeModal();
+    if (event.keyCode == this.escape_keycode) {
+      this.closeModal();
+    }    
   }
 }

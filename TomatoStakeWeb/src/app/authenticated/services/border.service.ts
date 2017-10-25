@@ -3,18 +3,18 @@ import { Headers, Http } from '@angular/http';
 
 import 'rxjs/add/operator/toPromise';
 
-import { Plant } from '../plant';
+import { Border } from '../border';
 
-import { PLANTS } from '../mocks';
+import { BORDERS } from '../mocks';
 
 @Injectable()
-export class PlantService {
-  private plantsUrl = 'api/plants';
+export class BorderService {
+  private bordersUrl = 'api/borders';  
 
   constructor(private http: Http) { }
 
-  getPlants(): Plant[] {
-    return PLANTS;
+  getBorders(): Border[] {
+    return BORDERS;
   }
 
   create(name: string): void {
