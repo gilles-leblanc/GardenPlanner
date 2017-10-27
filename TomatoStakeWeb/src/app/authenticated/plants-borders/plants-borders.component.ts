@@ -16,7 +16,7 @@ import { BorderService } from '../services/border.service';
 export class PlantsBordersComponent extends ModalHandler implements OnInit {
   plants: Plant[];
   borders: Border[];
-  showDuplicateMessage: boolean;
+  duplicateName: string;
 
   constructor(private alertService: AlertService, 
               private plantService: PlantService,
@@ -44,12 +44,17 @@ export class PlantsBordersComponent extends ModalHandler implements OnInit {
 
     // validate that the location name doesn't already exists
     if (this.borders.some(x => x.name == name)) {
-      // this.alertService.alert('test');
-      this.showDuplicateMessage = true;
+      this.duplicateName = name;
       return;
     }
 
+    this.duplicateName = "";
     this.borderService.create(name);
     this.closeModal();
+  }
+
+  closeWindow(): void {
+    this.closeModal(); 
+    this.duplicateName = "";
   }
 }

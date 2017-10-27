@@ -65,11 +65,11 @@
             <input class="input" type="text" id="new-location" #location>
           </div>
         </div>
-        <label *ngIf="showDuplicateMessage" class="has-text-danger">There is already another location with the same name.</label>
+        <label *ngIf="duplicateName" class="has-text-danger">There is already another location with the name {{duplicateName}}.</label>
       </section>
       <footer class="modal-card-foot">
-        <button class="button is-success" (click)="add(location.value);">Add</button>
-        <button class="button" (click)="closeModal(); location.value='';">Cancel</button>
+        <button class="button is-success" (click)="add(location.value); location.value='';">Add</button>
+        <button class="button" (click)="closeWindow(); location.value='';">Cancel</button>
       </footer>
     </div>
   </div>
