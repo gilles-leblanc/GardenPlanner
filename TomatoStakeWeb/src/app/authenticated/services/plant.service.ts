@@ -20,4 +20,12 @@ export class PlantService {
   create(name: string): void {
     // make http call
   }
+
+  update(): void {
+    
+  }
+
+  delete(id: number): void {
+
+  }
 }

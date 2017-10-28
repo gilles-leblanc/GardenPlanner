@@ -29,10 +29,22 @@
           <td><span class="tag is-primary">Main border</span></td>
           <td>{{plant.notes}}</td>
           <td><a>Prune</a></td>
-          <td><span class="icon has-text-warning"><i class="fa fa-pencil"></i></span> <span class="icon has-text-warning"><i class="fa fa-trash-o"></i></span></td>
+          <td>
+            <span class="icon has-text-warning" (click)="editPlant(plant)">
+              <i class="fa fa-pencil clickable"></i>
+            </span> 
+
+            <span class="icon has-text-warning" (click)="deletePlant(plant); $event.stopPropagation();">
+              <i class="fa fa-trash-o clickable"></i>
+            </span>
+          </td>
       </tr>
     </tbody>
   </table>
+
+  <p *ngIf="plants.length === 0" class="notification is-info">
+    You haven't added any plants yet. Use the Add Plant button to get started.
+  </p>
 
   <button class="button is-info">
     <span class="icon">
@@ -68,7 +80,7 @@
         <label *ngIf="duplicateName" class="has-text-danger">There is already another location with the name {{duplicateName}}.</label>
       </section>
       <footer class="modal-card-foot">
-        <button class="button is-success" (click)="add(location.value); location.value='';">Add</button>
+        <button class="button is-success" (click)="addBorder(location.value); location.value='';">Add</button>
         <button class="button" (click)="closeWindow(); location.value='';">Cancel</button>
       </footer>
     </div>

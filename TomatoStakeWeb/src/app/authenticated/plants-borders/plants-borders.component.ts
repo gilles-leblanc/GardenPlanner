@@ -12,6 +12,7 @@ import { BorderService } from '../services/border.service';
 @Component({
   selector: 'plants-borders',
   templateUrl: './plants-borders.component.html',
+  styles: [`.clickable { cursor: pointer; } `]
 })
 export class PlantsBordersComponent extends ModalHandler implements OnInit {
   plants: Plant[];
@@ -33,11 +34,20 @@ export class PlantsBordersComponent extends ModalHandler implements OnInit {
     this.plants = this.plantService.getPlants();
   }  
 
+  editPlant(id: number): void {
+    this.plantService.update();
+  }
+  
+  deletePlant(plant: Plant): void {
+    this.plantService.delete(plant.id);    
+    this.plants = this.plants.filter(x => x !== plant)
+  }
+
   getBorders(): void {
     this.borders = this.borderService.getBorders();
   }
 
-  add(name: string): void {
+  addBorder(name: string): void {
     // validate that the location name isn't empty
     name = name.trim();
     if (!name) { return; }
