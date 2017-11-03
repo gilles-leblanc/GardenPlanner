@@ -5,6 +5,10 @@ import { Component, OnInit } from '@angular/core';
 import { ModalHandler } from '../modal';
 import { Plant } from '../plant';
 import { Border } from '../border';
+
+import { PlantDisplayRowComponent } from './plant-display-row.component';
+import { PlantEditRowComponent } from './plant-edit-row.component';
+
 import { AlertService } from '../../services/alert.service';
 import { PlantService } from '../services/plant.service';
 import { BorderService } from '../services/border.service';
@@ -12,17 +16,19 @@ import { BorderService } from '../services/border.service';
 @Component({
   selector: 'plants-borders',
   templateUrl: './plants-borders.component.html',
-  styles: [`.clickable { cursor: pointer; } `]
+  // styles: [`.clickable { cursor: pointer; } `]
 })
 export class PlantsBordersComponent extends ModalHandler implements OnInit {
   plants: Plant[];
   borders: Border[];
   duplicateName: string;
+  selectedId: number;
 
   constructor(private alertService: AlertService, 
               private plantService: PlantService,
               private borderService: BorderService) { 
     super();
+    this.selectedId = -1;
   }
 
   ngOnInit(): void {
@@ -34,7 +40,12 @@ export class PlantsBordersComponent extends ModalHandler implements OnInit {
     this.plants = this.plantService.getPlants();
   }  
 
+  onSelected(id: number) {
+    this.selectedId = id;
+  }
+
   editPlant(id: number): void {
+    this.selectedId = id;
     this.plantService.update();
   }
   

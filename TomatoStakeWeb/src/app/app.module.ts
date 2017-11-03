@@ -8,6 +8,8 @@ import { LandingComponent } from './landing/landing.component';
 import { LoginComponent } from './login/login.component';
 import { GardenPlannerComponent } from './authenticated/garden-planner/garden-planner.component';
 import { PlantsBordersComponent } from './authenticated/plants-borders/plants-borders.component';
+import { PlantDisplayRowComponent } from './authenticated/plants-borders/plant-display-row.component';
+import { PlantEditRowComponent } from './authenticated/plants-borders/plant-edit-row.component';
 import { AlertComponent } from './alert.component';
 import { NavbarComponent } from './authenticated/navbar/navbar.component';
 
@@ -26,6 +28,8 @@ import { AppRoutingModule } from './app-routing.module';
     LoginComponent,
     GardenPlannerComponent,
     PlantsBordersComponent,
+    PlantDisplayRowComponent,
+    PlantEditRowComponent,
     AlertComponent,
     NavbarComponent,
   ],

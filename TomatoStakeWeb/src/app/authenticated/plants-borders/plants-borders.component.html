@@ -24,21 +24,10 @@
     </thead>
 
     <tbody>
-      <tr *ngFor="let plant of plants">
-          <td>{{plant.name}}</td>
-          <td><span class="tag is-primary">Main border</span></td>
-          <td>{{plant.notes}}</td>
-          <td><a>Prune</a></td>
-          <td>
-            <span class="icon has-text-warning" (click)="editPlant(plant)">
-              <i class="fa fa-pencil clickable"></i>
-            </span> 
-
-            <span class="icon has-text-warning" (click)="deletePlant(plant); $event.stopPropagation();">
-              <i class="fa fa-trash-o clickable"></i>
-            </span>
-          </td>
-      </tr>
+        <ng-container *ngFor="let plant of plants">
+            <tr *ngIf="plant.id !== selectedId" class="plant-display-row" [plant]="plant" (onSelected)="onSelected($event)"></tr>
+            <tr *ngIf="plant.id === selectedId" class="plant-edit-row" [plant]="plant"></tr>
+        </ng-container>
     </tbody>
   </table>
 
