@@ -10,9 +10,13 @@ import { Plant } from '../plant';
 export class PlantDisplayRowComponent {
   @Input() plant: Plant;
   @Output() onSelected = new EventEmitter<number>();
-  // @Output() onToggleEdit = new EventEmitter<any>();
+  @Output() onDeleted = new EventEmitter<Plant>();
 
   editPlant(id: number): void {
     this.onSelected.emit(id);
+  }
+
+  deletePlant(plant: Plant): void {
+    this.onDeleted.emit(plant);
   }
 }

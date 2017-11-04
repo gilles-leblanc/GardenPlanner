@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 import { Plant } from '../plant';
 
@@ -9,5 +9,14 @@ import { Plant } from '../plant';
 })
 export class PlantEditRowComponent {
   @Input() plant: Plant;
-  // @Output() onToggleEdit = new EventEmitter<any>();
+  @Output() onCancelled = new EventEmitter();
+  @Output() onSaved = new EventEmitter<Plant>();
+
+  cancelEdit() {
+    this.onCancelled.emit(this.plant.id === 0);
+  }
+
+  save(plant: Plant) {
+    this.onSaved.emit(plant);
+  }
 }

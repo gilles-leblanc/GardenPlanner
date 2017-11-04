@@ -16,7 +16,6 @@ import { BorderService } from '../services/border.service';
 @Component({
   selector: 'plants-borders',
   templateUrl: './plants-borders.component.html',
-  // styles: [`.clickable { cursor: pointer; } `]
 })
 export class PlantsBordersComponent extends ModalHandler implements OnInit {
   plants: Plant[];
@@ -28,7 +27,7 @@ export class PlantsBordersComponent extends ModalHandler implements OnInit {
               private plantService: PlantService,
               private borderService: BorderService) { 
     super();
-    this.selectedId = -1;
+    this.unselectPlant();
   }
 
   ngOnInit(): void {
@@ -44,18 +43,41 @@ export class PlantsBordersComponent extends ModalHandler implements OnInit {
     this.selectedId = id;
   }
 
-  editPlant(id: number): void {
-    this.selectedId = id;
-    this.plantService.update();
+  onCancelled(newPlant: boolean) {
+    this.unselectPlant();
+    
+    if (newPlant) {
+      this.plants = this.plants.filter(p => p.id !== 0);
+    }
   }
   
-  deletePlant(plant: Plant): void {
+  onSaved(plant: Plant) {
+    this.unselectPlant();
+  }
+
+  // editPlant(id: number): void {
+  //   this.selectedId = id;
+  //   this.plantService.update();
+  // }
+  
+  onDeleted(plant: Plant): void {
     this.plantService.delete(plant.id);    
     this.plants = this.plants.filter(x => x !== plant)
   }
 
   getBorders(): void {
     this.borders = this.borderService.getBorders();
+  }
+
+  addPlant(): void {
+    // we only allow one new plant row at a time
+    // before we create a new plant row we must check if there isn't already a pre-existing one
+    if (!this.plants.some(p => p.id === 0)) {
+      let newPlant = new Plant();
+      newPlant.id = 0;
+      this.plants.push(newPlant);
+      this.selectedId = 0;
+    }    
   }
 
   addBorder(name: string): void {
@@ -77,5 +99,9 @@ export class PlantsBordersComponent extends ModalHandler implements OnInit {
   closeWindow(): void {
     this.closeModal(); 
     this.duplicateName = "";
+  }
+
+  private unselectPlant() {
+    this.selectedId = -1;
   }
 }

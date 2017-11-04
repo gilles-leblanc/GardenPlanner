@@ -25,8 +25,10 @@
 
     <tbody>
         <ng-container *ngFor="let plant of plants">
-            <tr *ngIf="plant.id !== selectedId" class="plant-display-row" [plant]="plant" (onSelected)="onSelected($event)"></tr>
-            <tr *ngIf="plant.id === selectedId" class="plant-edit-row" [plant]="plant"></tr>
+            <tr *ngIf="plant.id !== selectedId" class="plant-display-row" [plant]="plant" 
+                (onSelected)="onSelected($event)" (onDeleted)="onDeleted($event)"></tr>
+            <tr *ngIf="plant.id === selectedId" class="plant-edit-row" [plant]="plant"
+                (onCancelled)="onCancelled($event)" (onSaved)="onSaved($event)"></tr>
         </ng-container>
     </tbody>
   </table>
@@ -35,7 +37,7 @@
     You haven't added any plants yet. Use the Add Plant button to get started.
   </p>
 
-  <button class="button is-info">
+  <button class="button is-info" (click)="addPlant()">
     <span class="icon">
       <i class="fa fa-leaf"></i>
     </span>

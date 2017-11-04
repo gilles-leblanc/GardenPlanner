@@ -1,13 +1,26 @@
-<td>{{plant.name}}</td>
-<td><span class="tag is-primary">Main border</span></td>
-<td>{{plant.notes}}</td>
-<td><a>Prune</a></td>
 <td>
-  <span class="icon has-text-primary">
-    <i class="fa fa-check"></i>
+  <input [(ngModel)]="plant.name" class="input is-danger" type="text" placeholder="Plant name (required)" required>
+</td>
+
+<td>
+  <span class="tag is-primary">Main border</span> 
+  <span class="icon has-text-primary clickable"><i class="fa fa-plus"></i></span>
+</td>
+
+<td>
+  <input [(ngModel)]="plant.notes" class="input" type="text">
+</td>
+
+<td>
+  <a>Prune</a>
+</td>
+
+<td>
+  <span class="icon has-text-primary" (click)="save(plant)">
+    <i class="fa fa-check clickable"></i>
   </span> 
   
-  <span class="icon has-text-info">
-    <i class="fa fa-close"></i>
+  <span class="icon has-text-info" (click)="cancelEdit()">
+    <i class="fa fa-close clickable"></i>
   </span>
 </td>
