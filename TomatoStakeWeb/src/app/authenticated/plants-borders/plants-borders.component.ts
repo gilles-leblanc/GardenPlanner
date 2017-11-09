@@ -28,6 +28,8 @@ export class PlantsBordersComponent extends ModalHandler implements OnInit {
               private borderService: BorderService) { 
     super();
     this.unselectPlant();
+    this.registerModal('border');
+    this.registerModal('addBorder');
   }
 
   ngOnInit(): void {
@@ -63,6 +65,15 @@ export class PlantsBordersComponent extends ModalHandler implements OnInit {
   onDeleted(plant: Plant): void {
     this.plantService.delete(plant.id);    
     this.plants = this.plants.filter(x => x !== plant)
+  }
+
+  onAddPlantToBorder(plantId: number) {
+    this.openModal('addBorder');
+  }
+
+  addBorderToPlant() {
+    this.plantService.addPlantToBorder();
+    this.closeModal();
   }
 
   getBorders(): void {

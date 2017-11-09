@@ -28,4 +28,8 @@ export class PlantService {
   delete(id: number): void {
 
   }
+
+  addPlantToBorder(): void {
+    
+  }
 }

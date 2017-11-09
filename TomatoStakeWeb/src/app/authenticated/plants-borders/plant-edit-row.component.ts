@@ -11,6 +11,7 @@ export class PlantEditRowComponent {
   @Input() plant: Plant;
   @Output() onCancelled = new EventEmitter();
   @Output() onSaved = new EventEmitter<Plant>();
+  @Output() onAddPlantToBorder = new EventEmitter<number>();
 
   cancelEdit() {
     this.onCancelled.emit(this.plant.id === 0);
@@ -18,5 +19,9 @@ export class PlantEditRowComponent {
 
   save(plant: Plant) {
     this.onSaved.emit(plant);
+  }
+
+  addPlantToBorder(plantId: number) {
+    this.onAddPlantToBorder.emit(plantId);
   }
 }
