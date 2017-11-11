@@ -15,7 +15,7 @@
   <div class="columns">
     <div class="column">
       <div id="new-job">
-        <button class="button is-info modal-button" data-target="modal-job" (click)="openModal()">
+        <button class="button is-info modal-button" data-target="modal-job" (click)="openModal('addJob')">
           <span class="icon">
             <i class="fa fa-leaf"></i>
           </span>
@@ -31,48 +31,7 @@
         </header>
 
         <div class="card-content">
-          <div class="notification">
-            <button class="delete"></button>
-            <p>
-              <strong>Sow: Carrots</strong>
-            </p>
-            <p>
-              <em>Date: May</em>
-            </p>
-            <p>Location:
-              <span class="tag is-primary">Veg bed</span>
-            </p>
-            <p>Direct sow</p>
-          </div>
-
-          <div class="card">
-            <header class="card-header">
-              <p class="card-header-title">
-                Sow: Carrots
-              </p>
-            </header>
-
-            <div class="card-content">
-              <p>
-                <em>Date: May</em>
-              </p>
-              <p>Location:
-                <span class="tag is-primary">Veg bed</span>
-              </p>
-              <p>Direct sow</p>
-            </div>
-          </div>
-
-          <div class="notification is-info">
-            <button class="delete"></button>
-            <p>
-              <strong>Fertilize</strong>
-            </p>
-            <p>
-              <em>Date: 10-20 May</em>
-            </p>
-            <p>Fertilize the whole yard</p>
-          </div>
+          <garden-job *ngFor="let job of jobs" [job]="job"></garden-job>
         </div>
       </div>
 
@@ -84,18 +43,7 @@
         </header>
 
         <div class="card-content">
-          <div class="notification is-info">
-            <button class="delete"></button>
-            <p>
-              <strong>Cut Back: Delphinium</strong>
-            </p>
-            <p>
-              <em>Date: Early Summer</em>
-            </p>
-            <p>Location:
-              <span class="tag is-primary">Main border</span>
-            </p>
-          </div>
+         
         </div>
       </div>
 
@@ -107,30 +55,7 @@
         </header>
 
         <div class="card-content">
-          <div class="notification is-info">
-            <button class="delete"></button>
-            <p>
-              <strong>Divide: Hosta, Iris</strong>
-            </p>
-            <p>
-              <em>Date: Late summer</em>
-            </p>
-            <p>Location:
-              <span class="tag is-primary">Front yard</span>
-              <span class="tag is-primary">Main border</span>
-            </p>
-            <p>Optional description</p>
-          </div>
-
-          <div class="notification is-info">
-            <button class="delete"></button>
-            <p>
-              <strong>Prune: Clematis</strong>
-            </p>
-            <p>
-              <em>Date: Around the 9th of October</em>
-            </p>
-          </div>
+         
         </div>
       </div>
 
@@ -153,7 +78,7 @@
       </ul>
     </div>
 
-    <div class="modal" [class.is-active]="isModalVisible" id="modal-job">
+    <div class="modal" [class.is-active]="isVisible('addJob')" id="modal-job">
       <div class="modal-background"></div>
       <div class="modal-card">
         <header class="modal-card-head">

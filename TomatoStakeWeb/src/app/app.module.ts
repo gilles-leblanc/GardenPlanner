@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { LandingComponent } from './landing/landing.component';
 import { LoginComponent } from './login/login.component';
 import { GardenPlannerComponent } from './authenticated/garden-planner/garden-planner.component';
+import { GardenJobComponent } from './authenticated/garden-planner/garden-job.component';
 import { PlantsBordersComponent } from './authenticated/plants-borders/plants-borders.component';
 import { PlantDisplayRowComponent } from './authenticated/plants-borders/plant-display-row.component';
 import { PlantEditRowComponent } from './authenticated/plants-borders/plant-edit-row.component';
@@ -18,6 +19,7 @@ import { AuthGuard } from './services/auth-guard.service';
 import { AlertService } from './services/alert.service';
 import { PlantService } from './authenticated/services/plant.service';
 import { BorderService } from './authenticated/services/border.service';
+import { JobService } from './authenticated/services/job.service';
 
 import { AppRoutingModule } from './app-routing.module';
 
@@ -27,6 +29,7 @@ import { AppRoutingModule } from './app-routing.module';
     LandingComponent,
     LoginComponent,
     GardenPlannerComponent,
+    GardenJobComponent,
     PlantsBordersComponent,
     PlantDisplayRowComponent,
     PlantEditRowComponent,
@@ -39,7 +42,7 @@ import { AppRoutingModule } from './app-routing.module';
     FormsModule,
     HttpModule,
   ],
-  providers: [ AuthService, AuthGuard, AlertService, PlantService, BorderService ],
+  providers: [ AuthService, AuthGuard, AlertService, PlantService, BorderService, JobService ],
   bootstrap: [ AppComponent ]
 })
 export class AppModule { }
