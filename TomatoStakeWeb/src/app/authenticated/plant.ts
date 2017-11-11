@@ -7,4 +7,8 @@ export class Plant {
   locations: Border[];
   notes: string;
   jobs: Job[];
+
+  constructor() {
+    this.name = "";
+  }
 }

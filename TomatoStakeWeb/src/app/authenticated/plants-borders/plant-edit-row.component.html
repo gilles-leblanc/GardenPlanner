@@ -1,5 +1,5 @@
 <td>
-  <input [(ngModel)]="plant.name" class="input is-danger" type="text" placeholder="Plant name (required)" required>
+  <input [(ngModel)]="plant.name" class="input" [class.is-danger]="plant.name.length == 0" type="text" placeholder="Plant name (required)" required>
 </td>
 
 <td>
