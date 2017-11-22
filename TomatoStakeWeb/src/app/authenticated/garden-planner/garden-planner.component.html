@@ -31,7 +31,9 @@
         </header>
 
         <div class="card-content">
-          <garden-job *ngFor="let job of jobs" [job]="job"></garden-job>
+          <ng-container *ngFor="let job of jobs">
+              <div class="notification garden-job" [job]="job"></div>
+          </ng-container>
         </div>
       </div>
 
@@ -43,7 +45,7 @@
         </header>
 
         <div class="card-content">
-         
+
         </div>
       </div>
 
@@ -55,7 +57,7 @@
         </header>
 
         <div class="card-content">
-         
+
         </div>
       </div>
 
