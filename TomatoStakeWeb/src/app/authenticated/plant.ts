@@ -9,6 +9,6 @@ export class Plant {
   jobs: Job[];
 
   constructor() {
-    this.name = "";
+    this.name = '';
   }
 }

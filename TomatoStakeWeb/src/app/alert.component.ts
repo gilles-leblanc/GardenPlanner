@@ -39,6 +39,6 @@ export class AlertComponent implements OnInit {
 
   hide(): void {
     this.isDisplayed = false;
-    this.message = "";
+    this.message = '';
   }
 }

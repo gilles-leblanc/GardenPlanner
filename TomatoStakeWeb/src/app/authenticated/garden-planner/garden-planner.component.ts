@@ -17,7 +17,7 @@ import { JobService } from '../services/job.service';
 })
 export class GardenPlannerComponent extends ModalHandler implements OnInit {
   jobs: Job[];
-  
+
   constructor(private alertService: AlertService,
               private jobService: JobService) {
     super();
@@ -30,5 +30,5 @@ export class GardenPlannerComponent extends ModalHandler implements OnInit {
 
   getJobs(): void {
     this.jobs = this.jobService.getJobs();
-  }  
+  }
 }

@@ -23,9 +23,9 @@ export class PlantsBordersComponent extends ModalHandler implements OnInit {
   duplicateName: string;
   selectedId: number;
 
-  constructor(private alertService: AlertService, 
+  constructor(private alertService: AlertService,
               private plantService: PlantService,
-              private borderService: BorderService) { 
+              private borderService: BorderService) {
     super();
     this.unselectPlant();
     this.registerModal('border');
@@ -39,7 +39,7 @@ export class PlantsBordersComponent extends ModalHandler implements OnInit {
 
   getPlants(): void {
     this.plants = this.plantService.getPlants();
-  }  
+  }
 
   onSelected(id: number) {
     this.selectedId = id;
@@ -47,12 +47,12 @@ export class PlantsBordersComponent extends ModalHandler implements OnInit {
 
   onCancelled(newPlant: boolean) {
     this.unselectPlant();
-    
+
     if (newPlant) {
       this.plants = this.plants.filter(p => p.id !== 0);
     }
   }
-  
+
   onSaved(plant: Plant) {
     this.unselectPlant();
   }
@@ -61,10 +61,10 @@ export class PlantsBordersComponent extends ModalHandler implements OnInit {
   //   this.selectedId = id;
   //   this.plantService.update();
   // }
-  
+
   onDeleted(plant: Plant): void {
-    this.plantService.delete(plant.id);    
-    this.plants = this.plants.filter(x => x !== plant)
+    this.plantService.delete(plant.id);
+    this.plants = this.plants.filter(x => x !== plant);
   }
 
   onAddPlantToBorder(plantId: number) {
@@ -84,11 +84,11 @@ export class PlantsBordersComponent extends ModalHandler implements OnInit {
     // we only allow one new plant row at a time
     // before we create a new plant row we must check if there isn't already a pre-existing one
     if (!this.plants.some(p => p.id === 0)) {
-      let newPlant = new Plant();
+      const newPlant = new Plant();
       newPlant.id = 0;
       this.plants.push(newPlant);
       this.selectedId = 0;
-    }    
+    }
   }
 
   addBorder(name: string): void {
@@ -102,14 +102,14 @@ export class PlantsBordersComponent extends ModalHandler implements OnInit {
       return;
     }
 
-    this.duplicateName = "";
+    this.duplicateName = '';
     this.borderService.create(name);
     this.closeModal();
   }
 
   closeWindow(): void {
-    this.closeModal(); 
-    this.duplicateName = "";
+    this.closeModal();
+    this.duplicateName = '';
   }
 
   private unselectPlant() {

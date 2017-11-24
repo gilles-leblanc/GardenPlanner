@@ -5,7 +5,7 @@ import { HostListener } from '@angular/core';
 class ModalDialog {
   name: string;
   visible: boolean;
-  
+
   constructor(name: string) {
     this.name = name;
     this.visible = false;
@@ -15,7 +15,7 @@ class ModalDialog {
 export class ModalHandler {
   readonly escape_keycode = 27;
   private modalDialogs: ModalDialog[];
-    
+
   constructor() {
     this.modalDialogs = [];
   }
@@ -28,7 +28,7 @@ export class ModalHandler {
   openModal(name: string): void {
     this.closeAllModals();
     this.modalDialogs.find(m => m.name === name).visible = true;
-  }  
+  }
 
   // returns wether a specified modal is currently visible
   isVisible(name: string): boolean {
@@ -49,6 +49,6 @@ export class ModalHandler {
   keyboardInput(event: KeyboardEvent) {
     if (event.keyCode == this.escape_keycode) {
       this.closeModal();
-    }    
+    }
   }
 }

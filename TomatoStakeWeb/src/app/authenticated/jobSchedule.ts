@@ -15,13 +15,13 @@ export class FixedDate implements Schedule {
 
   isDueWhen(): Due {
     if (!this.date) {
-      throw new Error("date is not initialized.");
-    }    
+      throw new Error('date is not initialized.');
+    }
 
-    let today: moment.Moment = moment(new Date());
+    const today: moment.Moment = moment(new Date());
 
-    let deltaDay = today.diff(this.date, 'days');
-    let deltaMonth = today.diff(this.date, 'months');
+    const deltaDay = today.diff(this.date, 'days');
+    const deltaMonth = today.diff(this.date, 'months');
 
     if (deltaMonth >= 1) {
       return Due.Past;

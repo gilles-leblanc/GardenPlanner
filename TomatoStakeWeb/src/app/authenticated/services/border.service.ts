@@ -9,7 +9,7 @@ import { BORDERS } from '../mocks';
 
 @Injectable()
 export class BorderService {
-  private bordersUrl = 'api/borders';  
+  private bordersUrl = 'api/borders';
 
   constructor(private http: Http) { }
 

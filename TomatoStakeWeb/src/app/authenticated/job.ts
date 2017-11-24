@@ -4,7 +4,7 @@ import { Month, JobSchedule, FixedDate, FixedMonth, DateRange, MonthRange } from
 // A garden job/chore/activity
 export class Job {
   id: number;
-  name: string;  
+  name: string;
   description: string;
   locations: Border[];
   schedule: JobSchedule;

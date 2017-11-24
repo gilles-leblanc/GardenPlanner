@@ -36,7 +36,7 @@ import { AppRoutingModule } from './app-routing.module';
     AlertComponent,
     NavbarComponent,
   ],
-  imports: [    
+  imports: [
     AppRoutingModule,
     BrowserModule,
     FormsModule,

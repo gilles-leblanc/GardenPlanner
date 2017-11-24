@@ -9,6 +9,6 @@ import { Job } from '../job';
 })
 export class GardenJobComponent {
   @Input() job: Job;
-  
-  
+
+
 }

@@ -1,20 +1,20 @@
 import * as moment from 'moment';
 
-import { FixedDate, Due } from "./jobSchedule";
+import { FixedDate, Due } from './jobSchedule';
 
 describe('FixedDate Schedule', () => {
   let fixedDate: FixedDate;
   let today: Date;
 
-  beforeEach(() => { 
-    fixedDate = new FixedDate(); 
+  beforeEach(() => {
+    fixedDate = new FixedDate();
     today = new Date();
     fixedDate.date = moment(today);
   });
 
   it('#isDueWhen should return Error when date is not initialized', () => {
     fixedDate.date = null;
-    expect(() => fixedDate.isDueWhen()).toThrowError("date is not initialized.");
+    expect(() => fixedDate.isDueWhen()).toThrowError('date is not initialized.');
   });
 
   it('#isDueWhen should return Past when 1 month ago', () => {

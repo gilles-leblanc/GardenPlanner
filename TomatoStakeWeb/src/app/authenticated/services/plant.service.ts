@@ -22,7 +22,7 @@ export class PlantService {
   }
 
   update(): void {
-    
+
   }
 
   delete(id: number): void {
@@ -30,6 +30,6 @@ export class PlantService {
   }
 
   addPlantToBorder(): void {
-    
+
   }
 }
