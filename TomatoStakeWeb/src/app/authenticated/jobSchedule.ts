@@ -1,3 +1,4 @@
+import * as moment from 'moment';
 
 export enum Due { Past, Now, Soon, Later }
 
@@ -10,20 +11,35 @@ export enum Month { January, February, March, April, May, June, July, August, Se
 export type JobSchedule = FixedDate | DateRange | FixedMonth | MonthRange;
 
 export class FixedDate implements Schedule {
-  day: number;
-  month: Month;
+  date: moment.Moment;
 
   isDueWhen(): Due {
-    let today = new Date();
+    if (!this.date) {
+      throw new Error("date is not initialized.");
+    }    
 
-    let deltaDay = Math.abs(this.day - today.getDate());
-    let deltaMonth = this.month - today.getMonth();
+    let today: moment.Moment = moment(new Date());
 
-    if (deltaMonth <= -1) {
+    let deltaDay = today.diff(this.date, 'days');
+    let deltaMonth = today.diff(this.date, 'months');
+
+    if (deltaMonth >= 1) {
       return Due.Past;
     }
 
-    throw new Error("Can't calculate when job is due.");    
+    if (deltaDay >= 20) {
+      return Due.Past;
+    }
+
+    if (deltaDay < -20) {
+      return Due.Later;
+    }
+
+    if (deltaDay <= -8) {
+      return Due.Soon;
+    }
+
+    return Due.Now;
   }
 }
 
