@@ -3,7 +3,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'navbar',
+  selector: 'ts-navbar',
   templateUrl: './navbar.component.html',
 })
 export class NavbarComponent {

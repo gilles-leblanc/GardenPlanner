@@ -6,7 +6,7 @@ import { AlertService } from './services/alert.service';
 
 @Component({
   moduleId: module.id,
-  selector: 'alert',
+  selector: 'ts-alert',
   template: `
   <div *ngIf="isDisplayed" class="notification is-warning">
     <button class="delete"></button>

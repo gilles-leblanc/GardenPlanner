@@ -11,7 +11,7 @@ import { AlertService } from '../../services/alert.service';
 import { JobService } from '../services/job.service';
 
 @Component({
-  selector: 'planner',
+  selector: 'ts-planner',
   templateUrl: './garden-planner.component.html',
   styleUrls: ['./garden-planner.component.css']
 })

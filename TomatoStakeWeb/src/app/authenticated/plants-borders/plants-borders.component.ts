@@ -14,7 +14,7 @@ import { PlantService } from '../services/plant.service';
 import { BorderService } from '../services/border.service';
 
 @Component({
-  selector: 'plants-borders',
+  selector: 'ts-plants-borders',
   templateUrl: './plants-borders.component.html',
 })
 export class PlantsBordersComponent extends ModalHandler implements OnInit {
