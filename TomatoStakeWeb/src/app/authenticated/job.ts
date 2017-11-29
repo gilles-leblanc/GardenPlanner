@@ -1,5 +1,5 @@
 import { Border } from './border';
-import { Month, JobSchedule, FixedDate, FixedMonth, DateRange, MonthRange } from './jobSchedule';
+import { Month, JobSchedule } from './jobSchedule';
 
 // A garden job/chore/activity
 export class Job {

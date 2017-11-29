@@ -1,48 +1,36 @@
 import * as moment from 'moment';
 
 export enum Due { Past, Now, Soon, Later }
-
-export interface Schedule {
-  isDueWhen(): Due;
-}
-
 export enum Month { January, February, March, April, May, June, July, August, September, Octoboer, November, December }
 
-export type JobSchedule = FixedDate | DateRange | FixedMonth | MonthRange;
+export class JobSchedule {
+  protected readonly startDate: moment.Moment;
+  protected readonly endDate: moment.Moment;
 
-export class FixedDate implements Schedule {
-  date: moment.Moment;
+  constructor(startDate: moment.Moment, endDate: moment.Moment) {
+    this.startDate = startDate;
+    this.endDate = endDate;
+  }
 
   isDueWhen(): Due {
-    if (!this.date) {
+    if (!this.startDate || !this.endDate) {
       throw new Error('date is not initialized.');
     }
 
     const today: moment.Moment = moment(new Date());
 
-    const deltaDay = today.diff(this.date, 'days');
-    const deltaMonth = today.diff(this.date, 'months');
-
-    if (deltaMonth >= 1) {
+    if (this.endDate.isBefore(today.clone().subtract(15, 'days'))) {
       return Due.Past;
     }
 
-    if (deltaDay >= 20) {
-      return Due.Past;
-    }
-
-    if (deltaDay < -20) {
+    if (this.startDate.isAfter(today.clone().add(30, 'days'))) {
       return Due.Later;
     }
 
-    if (deltaDay <= -8) {
+    if (this.startDate.isAfter(today.clone().add(15, 'days'))) {
       return Due.Soon;
     }
 
     return Due.Now;
   }
 }
-
-export type FixedMonth = Month;
-export type DateRange = [FixedDate, FixedDate];
-export type MonthRange = [FixedMonth, FixedMonth];

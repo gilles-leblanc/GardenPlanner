@@ -31,7 +31,7 @@
         </header>
 
         <div class="card-content">
-          <ng-container *ngFor="let job of jobs">
+          <ng-container *ngFor="let job of getDueNow()">
               <div class="notification garden-job" [job]="job"></div>
           </ng-container>
         </div>
