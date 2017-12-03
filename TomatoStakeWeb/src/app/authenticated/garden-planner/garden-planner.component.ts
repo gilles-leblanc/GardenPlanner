@@ -36,4 +36,20 @@ export class GardenPlannerComponent extends ModalHandler implements OnInit {
   getDueNow(): Job[] {
     return this.jobs.filter(job => job.schedule.isDueWhen() === Due.Now);
   }
+
+  getDueSoon(): Job[] {
+    return this.jobs.filter(job => job.schedule.isDueWhen() === Due.Soon);
+  }
+
+  getDueLater(): Job[] {
+    return this.jobs.filter(job => job.schedule.isDueWhen() === Due.Later);
+  }
+
+  getDuePast(): Job[] {
+    return this.jobs.filter(job => job.schedule.isDueWhen() === Due.Past);
+  }
+
+  onRemoved(job: Job): void {
+    // ???
+  }
 }

@@ -32,7 +32,7 @@
 
         <div class="card-content">
           <ng-container *ngFor="let job of getDueNow()">
-              <div class="notification garden-job" [job]="job"></div>
+              <div class="notification garden-job" [job]="job" (onRemoved)="onRemoved($event)"></div>
           </ng-container>
         </div>
       </div>
@@ -45,7 +45,9 @@
         </header>
 
         <div class="card-content">
-
+          <ng-container *ngFor="let job of getDueSoon()">
+            <div class="notification garden-job" [job]="job" (onRemoved)="onRemoved($event)"></div>
+        </ng-container>
         </div>
       </div>
 
@@ -57,7 +59,9 @@
         </header>
 
         <div class="card-content">
-
+          <ng-container *ngFor="let job of getDueLater()">
+            <div class="notification garden-job" [job]="job" (onRemoved)="onRemoved($event)"></div>
+          </ng-container>
         </div>
       </div>
 

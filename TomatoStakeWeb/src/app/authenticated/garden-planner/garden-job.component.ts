@@ -1,14 +1,18 @@
-import { Component, EventEmitter, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 import { Job } from '../job';
 
 @Component({
   selector: 'div.garden-job',
   templateUrl: './garden-job.component.html',
-  // styles: [`.clickable { cursor: pointer; } `]
+  styleUrls: ['./garden-job.component.css']
 })
 export class GardenJobComponent {
   @Input() job: Job;
+  @Output() onRemoved = new EventEmitter<Job>();
 
-
+  // Remove a job from the schedule
+  removeJob(job: Job): void {
+    this.onRemoved.emit(job);
+  }
 }
