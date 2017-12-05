@@ -3,7 +3,7 @@
 </td>
 
 <td>
-  <span class="tag is-primary">Main border</span> 
+  <span *ngFor="let border of plant.locations" class="tag is-primary">{{border.name}}</span>
   <span class="icon has-text-primary clickable" (click)="addPlantToBorder(plant.Id)"><i class="fa fa-plus"></i></span>
 </td>
 
@@ -12,7 +12,7 @@
 </td>
 
 <td>
-  <a>Prune</a>
+  <a>Edit Row</a>
 </td>
 
 <td>

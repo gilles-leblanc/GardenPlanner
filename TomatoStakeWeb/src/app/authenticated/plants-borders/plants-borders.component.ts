@@ -71,7 +71,8 @@ export class PlantsBordersComponent extends ModalHandler implements OnInit {
     this.openModal('addBorder');
   }
 
-  addBorderToPlant() {
+  addBorderToPlant(border: Border) {
+    console.log(border.name);
     this.plantService.addPlantToBorder();
     this.closeModal();
   }
@@ -97,7 +98,7 @@ export class PlantsBordersComponent extends ModalHandler implements OnInit {
     if (!name) { return; }
 
     // validate that the location name doesn't already exists
-    if (this.borders.some(x => x.name == name)) {
+    if (this.borders.some(x => x.name === name)) {
       this.duplicateName = name;
       return;
     }

@@ -47,7 +47,7 @@ export class ModalHandler {
 
   @HostListener('window:keydown', ['$event'])
   keyboardInput(event: KeyboardEvent) {
-    if (event.keyCode == this.escape_keycode) {
+    if (event.keyCode === this.escape_keycode) {
       this.closeModal();
     }
   }

@@ -5,7 +5,7 @@ import { Plant } from '../plant';
 @Component({
   selector: 'tr.plant-display-row',
   templateUrl: './plant-display-row.component.html',
-  styles: [`.clickable { cursor: pointer; } `]
+  styles: [ `.clickable { cursor: pointer; } ` ]
 })
 export class PlantDisplayRowComponent {
   @Input() plant: Plant;

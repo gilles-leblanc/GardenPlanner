@@ -5,7 +5,6 @@ import { Job } from '../job';
 @Component({
   selector: 'div.garden-job',
   templateUrl: './garden-job.component.html',
-  styleUrls: ['./garden-job.component.css']
 })
 export class GardenJobComponent {
   @Input() job: Job;

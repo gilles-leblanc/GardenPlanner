@@ -1,13 +1,13 @@
 <td>{{plant.name}}</td>
 
 <td>
-  <span class="tag is-primary">Main border</span>
+  <span *ngFor="let border of plant.locations" class="tag is-primary">{{border.name}}</span>
 </td>
 
 <td>{{plant.notes}}</td>
 
 <td>
-  <a>Prune</a>
+  <a>Display Row</a>
 </td>
 
 <td>
