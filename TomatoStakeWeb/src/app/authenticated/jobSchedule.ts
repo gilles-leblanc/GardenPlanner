@@ -4,8 +4,8 @@ export enum Due { Past, Now, Soon, Later }
 export enum Month { January, February, March, April, May, June, July, August, September, Octoboer, November, December }
 
 export class JobSchedule {
-  protected readonly startDate: moment.Moment;
-  protected readonly endDate: moment.Moment;
+  readonly startDate: moment.Moment;
+  readonly endDate: moment.Moment;
 
   constructor(startDate: moment.Moment, endDate: moment.Moment) {
     this.startDate = startDate;

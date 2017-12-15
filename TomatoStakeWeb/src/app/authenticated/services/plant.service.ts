@@ -1,20 +1,19 @@
 import { Injectable } from '@angular/core';
-import { Headers, Http } from '@angular/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable } from 'rxjs/Observable';
 
 import 'rxjs/add/operator/toPromise';
 
 import { Plant } from '../plant';
 
-import { PLANTS } from '../mocks';
-
 @Injectable()
 export class PlantService {
   private plantsUrl = 'api/plants';
 
-  constructor(private http: Http) { }
+  constructor(private http: HttpClient) { }
 
-  getPlants(): Plant[] {
-    return PLANTS;
+  getPlants(): Observable<Plant[]> {
+    return this.http.get<Plant[]>(this.plantsUrl);
   }
 
   create(name: string): void {

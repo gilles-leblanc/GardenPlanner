@@ -4,7 +4,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { ModalHandler } from '../modal';
 import { Job } from '../job';
-import { Due } from '../jobSchedule';
+import { Due, JobSchedule } from '../jobSchedule';
 
 import { GardenJobComponent } from './garden-job.component';
 
@@ -30,7 +30,14 @@ export class GardenPlannerComponent extends ModalHandler implements OnInit {
   }
 
   getJobs(): void {
-    this.jobs = this.jobService.getJobs();
+    this.jobs = [];
+    this.jobService.getJobs()
+                   .subscribe(jobs => jobs.forEach(job => this.jobs.push(new Job(job.id,
+                                                                                 job.name,
+                                                                                 job.description,
+                                                                                 job.locations,
+                                                                                 new JobSchedule(job.schedule.startDate,
+                                                                                                 job.schedule.endDate)))));
   }
 
   getDueNow(): Job[] {

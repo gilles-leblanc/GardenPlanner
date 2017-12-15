@@ -38,7 +38,8 @@ export class PlantsBordersComponent extends ModalHandler implements OnInit {
   }
 
   getPlants(): void {
-    this.plants = this.plantService.getPlants();
+    this.plants = [];
+    this.plantService.getPlants().subscribe(plants => this.plants = plants);
   }
 
   onSelected(id: number) {
@@ -78,7 +79,8 @@ export class PlantsBordersComponent extends ModalHandler implements OnInit {
   }
 
   getBorders(): void {
-    this.borders = this.borderService.getBorders();
+    this.borders = [];
+    this.borderService.getBorders().subscribe(borders => this.borders = borders);
   }
 
   addPlant(): void {

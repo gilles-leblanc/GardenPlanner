@@ -1,19 +1,18 @@
 import { Injectable } from '@angular/core';
-import { Headers, Http } from '@angular/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable } from 'rxjs/Observable';
 
 import 'rxjs/add/operator/toPromise';
 
 import { Job } from '../job';
 
-import { JOBS } from '../mocks';
-
 @Injectable()
 export class JobService {
   private jobsUrl = 'api/jobs';
 
-  constructor(private http: Http) { }
+  constructor(private http: HttpClient) { }
 
-  getJobs(): Job[] {
-    return JOBS;
+  getJobs(): Observable<Job[]> {
+    return this.http.get<Job[]>(this.jobsUrl);
   }
 }

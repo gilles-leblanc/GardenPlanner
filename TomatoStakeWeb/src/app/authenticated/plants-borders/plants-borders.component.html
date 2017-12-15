@@ -85,7 +85,7 @@
         <!-- Content ... -->
         <div class="select">
           <select>            
-            <option *ngFor="let border of borders">{{border.name}}</option>
+            <option *ngFor="let border of borders" [value]="border">{{border.name}}</option>
           </select>
         </div>
       </section>

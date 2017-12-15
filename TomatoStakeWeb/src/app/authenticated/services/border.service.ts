@@ -1,20 +1,19 @@
 import { Injectable } from '@angular/core';
-import { Headers, Http } from '@angular/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable } from 'rxjs/Observable';
 
-import 'rxjs/add/operator/toPromise';
+// import 'rxjs/add/operator/toPromise';
 
 import { Border } from '../border';
-
-import { BORDERS } from '../mocks';
 
 @Injectable()
 export class BorderService {
   private bordersUrl = 'api/borders';
 
-  constructor(private http: Http) { }
+  constructor(private http: HttpClient) { }
 
-  getBorders(): Border[] {
-    return BORDERS;
+  getBorders(): Observable<Border[]> {
+    return this.http.get<Border[]>(this.bordersUrl);
   }
 
   create(name: string): void {
