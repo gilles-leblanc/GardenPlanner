@@ -44,14 +44,6 @@ export class InMemoryDataService implements InMemoryDbService {
   }
 
   createDb() {
-    return { this.borders };
-  }
-
-  createDb2() {
-    const bordersCopy = this.borders;
-    const plantsCopy = this.borders;
-    const jobsCopy = this.jobs;
-
-    return { bordersCopy, plantsCopy, jobsCopy };
+    return { borders: this.borders, plants: this.plants, jobs: this.jobs };
   }
 }
