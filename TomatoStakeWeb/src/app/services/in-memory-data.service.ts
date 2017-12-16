@@ -8,13 +8,17 @@ import { Month, JobSchedule } from '../authenticated/jobSchedule';
 import { InMemoryDbService } from 'angular-in-memory-web-api';
 
 export class InMemoryDataService implements InMemoryDbService {
-  createDb() {
-    const borders: Border[] = [
+  public readonly borders: Border[];
+  public readonly plants: Plant[];
+  public readonly jobs: Job[];
+
+  constructor() {
+    this.borders = [
       { id: 1, name: 'Front border' },
       { id: 2, name: 'Potager' },
     ];
 
-    const plants: Plant[] = [
+    this.plants = [
       { id: 1, name: 'Geranium', locations: [{ id: 1, name: 'Front border' }] as Border[], notes: '', jobs: [] as Job[] },
       { id: 2, name: 'Tulip', locations: [{ id: 1, name: 'Front border' }, { id: 2, name: 'Potager' }] as Border[],
         notes: '', jobs: [] as Job[] },
@@ -22,7 +26,7 @@ export class InMemoryDataService implements InMemoryDbService {
 
     const dateTimeNow = new Date();
 
-    const jobs: Job[] = [
+    this.jobs = [
       { id: 1, name: 'Sow Carrots', locations: [{ id: 2, name: 'Potager' }] as Border[], description: 'Direct sow',
         schedule: new JobSchedule(moment(dateTimeNow).subtract(3, 'days'), moment(dateTimeNow).add(3, 'days')) },
       { id: 2, name: 'Fertilize', locations: [{ id: 1, name: 'Front border' }, { id: 2, name: 'Potager' }] as Border[],
@@ -37,7 +41,17 @@ export class InMemoryDataService implements InMemoryDbService {
       { id: 6, name: 'Prep garden', locations: [] as Border[], description: 'Remove winter protection from the garden, open beds',
         schedule: new JobSchedule(moment(dateTimeNow).subtract(4, 'months'), moment(dateTimeNow).subtract(4, 'months')) },
     ];
+  }
 
-    return { borders, plants, jobs };
+  createDb() {
+    return { this.borders };
+  }
+
+  createDb2() {
+    const bordersCopy = this.borders;
+    const plantsCopy = this.borders;
+    const jobsCopy = this.jobs;
+
+    return { bordersCopy, plantsCopy, jobsCopy };
   }
 }

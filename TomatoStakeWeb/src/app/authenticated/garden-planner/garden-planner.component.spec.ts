@@ -1,10 +1,15 @@
+import { InMemoryDataService } from '../../services/in-memory-data.service';
+
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 
 import { HttpClientModule } from '@angular/common/http';
 import { RouterTestingModule } from '@angular/router/testing';
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/observable/of';
 
+import { Job } from '../job';
 import { JobSchedule, Due } from '../jobSchedule';
 import { GardenPlannerComponent } from './garden-planner.component';
 import { GardenJobComponent } from './garden-job.component';
@@ -21,11 +26,22 @@ describe('GardenPlannerComponent', () => {
   let comp: GardenPlannerComponent;
   let fixture: ComponentFixture<GardenPlannerComponent>;
 
+  let jobServiceStub: {
+    getJobs(): Observable<Job[]>;
+  };
+
   beforeEach(() => {
+    jobServiceStub = {
+      getJobs(): Observable<Job[]> {
+        const inMemoryDataService = new InMemoryDataService();
+        return Observable.of(inMemoryDataService.jobs);
+      }
+    };
+
     TestBed.configureTestingModule({
       imports: [ RouterTestingModule, HttpClientModule ],
       declarations: [ GardenPlannerComponent, GardenJobComponent, NavbarComponent ],
-      providers:    [ AlertService, JobService ],
+      providers:    [ AlertService, {provide: JobService, useValue: jobServiceStub} ],
     });
 
     fixture = TestBed.createComponent(GardenPlannerComponent);
