@@ -16,6 +16,10 @@ export class InMemoryDataService implements InMemoryDbService {
     this.borders = [
       { id: 1, name: 'Front border' },
       { id: 2, name: 'Potager' },
+      { id: 3, name: 'Back lawn' },
+      { id: 4, name: 'Front lawn' },
+      { id: 5, name: 'Patio pots' },
+      { id: 6, name: 'Indoor plants' },
     ];
 
     this.plants = [

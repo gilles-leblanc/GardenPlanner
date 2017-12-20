@@ -3,12 +3,14 @@
 import { Component, OnInit } from '@angular/core';
 
 import { ModalHandler } from '../modal';
+import { Border } from '../border';
 import { Job } from '../job';
 import { Due, JobSchedule } from '../jobSchedule';
 
 import { GardenJobComponent } from './garden-job.component';
 
 import { AlertService } from '../../services/alert.service';
+import { BorderService } from '../services/border.service';
 import { JobService } from '../services/job.service';
 
 @Component({
@@ -18,15 +20,18 @@ import { JobService } from '../services/job.service';
 })
 export class GardenPlannerComponent extends ModalHandler implements OnInit {
   jobs: Job[];
+  borders: Border[];
 
   constructor(private alertService: AlertService,
-              private jobService: JobService) {
+              private jobService: JobService,
+              private borderService: BorderService) {
     super();
     this.registerModal('addJob');
   }
 
   ngOnInit(): void {
     this.getJobs();
+    this.getBorders();
   }
 
   getJobs(): void {
@@ -38,6 +43,11 @@ export class GardenPlannerComponent extends ModalHandler implements OnInit {
                                                                                  job.locations,
                                                                                  new JobSchedule(job.schedule.startDate,
                                                                                                  job.schedule.endDate)))));
+  }
+
+  getBorders(): void {
+    this.borders = [];
+    this.borderService.getBorders().subscribe(borders => this.borders = borders);
   }
 
   getDueNow(): Job[] {

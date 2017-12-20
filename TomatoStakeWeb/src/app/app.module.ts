@@ -18,6 +18,8 @@ import { PlantEditRowComponent } from './authenticated/plants-borders/plant-edit
 import { AlertComponent } from './alert.component';
 import { NavbarComponent } from './authenticated/navbar/navbar.component';
 
+import { Mod3Pipe } from './authenticated/pipes/mod3';
+
 import { AuthService } from './services/auth.service';
 import { AuthGuard } from './services/auth-guard.service';
 import { AlertService } from './services/alert.service';
@@ -39,6 +41,7 @@ import { AppRoutingModule } from './app-routing.module';
     PlantEditRowComponent,
     AlertComponent,
     NavbarComponent,
+    Mod3Pipe,
   ],
   imports: [
     AppRoutingModule,
