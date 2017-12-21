@@ -108,86 +108,48 @@
             </label>
 
             <div class="columns">
-              <div class="column">
+              <div class="column is-one-third">
                 <div class="control">
                   <p>
                     <label class="radio">
-                      <input type="radio" name="answer"> Month range
+                      <input type="radio" name="rangeType" checked (click)="showMonth = true;$event.stopPropagation()">
+                      Month range
                     </label>
                   </p>
                   <p>
                     <label class="radio">
-                      <input type="radio" name="answer"> Day range
+                      <input type="radio" name="rangeType" (click)="showMonth = false;$event.stopPropagation()">
+                      Date range
                     </label>
                   </p>
                 </div>
               </div>
 
               <div class="column">
-                <div class="field">
-                  <input class="is-checkbox is-block is-info" id="chkLoc1" type="checkbox" name="chkLoc1">
-                  <label for="chMonthJan">January</label>
+                <div id="monthRange" [hidden]="!showMonth">
+                  From:
+                  <div class="select">
+                    <select>
+                        <option *ngFor="let startingMonth of months" [value]="startingMonth">{{startingMonth[1]}}</option>
+                    </select>
+                  </div>
+  
+                  To:
+                  <div class="select">
+                    <select>
+                        <option *ngFor="let endingMonth of months" [value]="endingMonth">{{endingMonth[1]}}</option>
+                    </select>
+                  </div>
                 </div>
+  
+                <div id="dateRange" [hidden]="showMonth">
+                  From:
 
-                <div class="field">
-                  <input class="is-checkbox is-block is-info" id="chkLoc1" type="checkbox" name="chkLoc1">
-                  <label for="chkMonthFeb">February</label>
-                </div>
 
-                <div class="field">
-                  <input class="is-checkbox is-block is-info" id="chkLoc1" type="checkbox" name="chkLoc1">
-                  <label for="chkMonthMarch">March</label>
+                  To:
+                  
                 </div>
-
-                <div class="field">
-                  <input class="is-checkbox is-block is-info" id="chkLoc1" type="checkbox" name="chkLoc1">
-                  <label for="chkMonthApril">April</label>
-                </div>
-              </div>
-
-              <div class="column">
-                <div class="field">
-                  <input class="is-checkbox is-block is-info" id="chkLoc1" type="checkbox" name="chkLoc1">
-                  <label for="chMonthMay">May</label>
-                </div>
-
-                <div class="field">
-                  <input class="is-checkbox is-block is-info" id="chkLoc1" type="checkbox" name="chkLoc1">
-                  <label for="chkMonthJune">June</label>
-                </div>
-
-                <div class="field">
-                  <input class="is-checkbox is-block is-info" id="chkLoc1" type="checkbox" name="chkLoc1">
-                  <label for="chkMonthJuly">July</label>
-                </div>
-
-                <div class="field">
-                  <input class="is-checkbox is-block is-info" id="chkLoc1" type="checkbox" name="chkLoc1">
-                  <label for="chkMonthAug">August</label>
-                </div>
-              </div>
-
-              <div class="column">
-                <div class="field">
-                  <input class="is-checkbox is-block is-info" id="chkLoc1" type="checkbox" name="chkLoc1">
-                  <label for="chkMonthSept">September</label>
-                </div>
-
-                <div class="field">
-                  <input class="is-checkbox is-block is-info" id="chkLoc1" type="checkbox" name="chkLoc1">
-                  <label for="chkMonthOct">October</label>
-                </div>
-
-                <div class="field">
-                  <input class="is-checkbox is-block is-info" id="chkLoc1" type="checkbox" name="chkLoc1">
-                  <label for="chkMonthNov">November</label>
-                </div>
-
-                <div class="field">
-                  <input class="is-checkbox is-block is-info" id="chkLoc1" type="checkbox" name="chkLoc1">
-                  <label for="chkMonthDec">December</label>
-                </div>
-              </div>
+              </div>              
             </div>
           </div>
 

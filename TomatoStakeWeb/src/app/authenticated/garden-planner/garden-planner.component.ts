@@ -12,6 +12,7 @@ import { GardenJobComponent } from './garden-job.component';
 import { AlertService } from '../../services/alert.service';
 import { BorderService } from '../services/border.service';
 import { JobService } from '../services/job.service';
+import { MonthService } from '../services/month.service';
 
 @Component({
   selector: 'ts-planner',
@@ -21,10 +22,13 @@ import { JobService } from '../services/job.service';
 export class GardenPlannerComponent extends ModalHandler implements OnInit {
   jobs: Job[];
   borders: Border[];
+  months: (number | string)[][];
+  showMonth: boolean;
 
   constructor(private alertService: AlertService,
               private jobService: JobService,
-              private borderService: BorderService) {
+              private borderService: BorderService,
+              private monthService: MonthService) {
     super();
     this.registerModal('addJob');
   }
@@ -32,6 +36,9 @@ export class GardenPlannerComponent extends ModalHandler implements OnInit {
   ngOnInit(): void {
     this.getJobs();
     this.getBorders();
+
+    this.showMonth = true;
+    this.months = this.monthService.getMonths();
   }
 
   getJobs(): void {

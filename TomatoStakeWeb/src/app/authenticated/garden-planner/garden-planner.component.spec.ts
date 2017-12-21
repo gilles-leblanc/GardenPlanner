@@ -20,7 +20,7 @@ import { Mod3Pipe } from '../pipes/mod3';
 import { AlertService } from '../../services/alert.service';
 import { BorderService } from '../services/border.service';
 import { JobService } from '../services/job.service';
-
+import { MonthService } from '../services/month.service';
 
 describe('GardenPlannerComponent', () => {
   let alertService: AlertService;
@@ -56,7 +56,7 @@ describe('GardenPlannerComponent', () => {
     TestBed.configureTestingModule({
       imports: [ RouterTestingModule, HttpClientModule ],
       declarations: [ GardenPlannerComponent, GardenJobComponent, NavbarComponent, Mod3Pipe ],
-      providers:    [ AlertService, {provide: BorderService, useValue: borderServiceStub},
+      providers:    [ AlertService, MonthService, {provide: BorderService, useValue: borderServiceStub},
                       {provide: JobService, useValue: jobServiceStub} ],
     });
 

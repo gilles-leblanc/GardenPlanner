@@ -26,6 +26,7 @@ import { AlertService } from './services/alert.service';
 import { PlantService } from './authenticated/services/plant.service';
 import { BorderService } from './authenticated/services/border.service';
 import { JobService } from './authenticated/services/job.service';
+import { MonthService } from './authenticated/services/month.service';
 
 import { AppRoutingModule } from './app-routing.module';
 
@@ -50,7 +51,7 @@ import { AppRoutingModule } from './app-routing.module';
     HttpClientModule,
     InMemoryWebApiModule.forRoot(InMemoryDataService, { dataEncapsulation: false }),
   ],
-  providers: [ AuthService, AuthGuard, AlertService, PlantService, BorderService, JobService ],
+  providers: [ AuthService, AuthGuard, AlertService, PlantService, BorderService, JobService, MonthService ],
   bootstrap: [ AppComponent ]
 })
 export class AppModule { }
