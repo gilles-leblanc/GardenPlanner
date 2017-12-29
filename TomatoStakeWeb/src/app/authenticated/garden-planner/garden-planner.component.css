@@ -23,10 +23,19 @@ div.card {
   border-style: solid;
   border-left-color: #76B566;
   border-width: 0px;
-  border-left-width: 1px;
+  border-left-width: 0.15em;
   padding-left: 0.5em;
 }
 
 .card-header-title {
   color: white;
+}
+
+span.tag > a {
+  color: white;
+}
+
+span.tag.is-info {
+  cursor: pointer;
+  margin-bottom: 0.275em;
 }

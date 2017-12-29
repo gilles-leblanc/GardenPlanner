@@ -32,7 +32,7 @@
 
         <div class="card-content">
           <ng-container *ngFor="let job of getDueNow()">
-              <div class="notification garden-job" [job]="job" (onRemoved)="onRemoved($event)"></div>
+            <div class="notification garden-job" [job]="job" (onRemoved)="onRemoved($event)"></div>
           </ng-container>
         </div>
       </div>
@@ -47,7 +47,7 @@
         <div class="card-content">
           <ng-container *ngFor="let job of getDueSoon()">
             <div class="notification garden-job" [job]="job" (onRemoved)="onRemoved($event)"></div>
-        </ng-container>
+          </ng-container>
         </div>
       </div>
 
@@ -70,16 +70,36 @@
     <div class="column is-one-quarter">
       <ul class="link-list">
         <li>
-          <a href="#new-job">New job</a>
+          <span class="tag is-info modal-button" data-target="modal-job" (click)="openModal('addJob')">
+            <span class="icon">
+              <i class="fa fa-leaf"></i>
+            </span>
+            Add job
+          </span>
         </li>
         <li>
-          <a href="#current">Right now</a>
+          <span class="tag is-info" (click)="onAnchorClick('current')">
+            <span class="icon">
+              <i class="fa fa-angle-double-left"></i>
+            </span>
+            Right now
+          </span>          
         </li>
         <li>
-          <a href="#soon">Next few weeks</a>
+          <span class="tag is-info" (click)="onAnchorClick('soon')">
+            <span class="icon">
+              <i class="fa fa-angle-double-left"></i>
+            </span>
+            Next few weeks
+          </span>
         </li>
         <li>
-          <a href="#later">Future jobs</a>
+          <span class="tag is-info" (click)="onAnchorClick('later')">
+            <span class="icon">
+              <i class="fa fa-angle-double-left"></i>
+            </span>
+            Future jobs
+          </span>
         </li>
       </ul>
     </div>
@@ -112,14 +132,12 @@
                 <div class="control">
                   <p>
                     <label class="radio">
-                      <input type="radio" name="rangeType" checked (click)="showMonth = true;$event.stopPropagation()">
-                      Month range
+                      <input type="radio" name="rangeType" checked (click)="showMonth = true;$event.stopPropagation()"> Month range
                     </label>
                   </p>
                   <p>
                     <label class="radio">
-                      <input type="radio" name="rangeType" (click)="showMonth = false;$event.stopPropagation()">
-                      Date range
+                      <input type="radio" name="rangeType" (click)="showMonth = false;$event.stopPropagation()"> Date range
                     </label>
                   </p>
                 </div>
@@ -130,26 +148,23 @@
                   From:
                   <div class="select">
                     <select>
-                        <option *ngFor="let startingMonth of months" [value]="startingMonth">{{startingMonth[1]}}</option>
+                      <option *ngFor="let startingMonth of months" [value]="startingMonth">{{startingMonth[1]}}</option>
                     </select>
                   </div>
-  
+
                   To:
                   <div class="select">
                     <select>
-                        <option *ngFor="let endingMonth of months" [value]="endingMonth">{{endingMonth[1]}}</option>
+                      <option *ngFor="let endingMonth of months" [value]="endingMonth">{{endingMonth[1]}}</option>
                     </select>
                   </div>
                 </div>
-  
+
                 <div id="dateRange" [hidden]="showMonth">
-                  From:
+                  From: To:
 
-
-                  To:
-                  
                 </div>
-              </div>              
+              </div>
             </div>
           </div>
 
@@ -159,7 +174,7 @@
             </label>
 
             <div class="columns">
-              <div class="column">               
+              <div class="column">
                 <div class="field" *ngFor="let border of borders | mod3:1">
                   <input class="is-checkbox is-block is-info" id="chkBorder{{border.id}}" type="checkbox" name="chkBorder{{border.id}}">
                   <label for="chkBorder{{border.id}}">{{border.name}}</label>
@@ -178,7 +193,7 @@
                   <input class="is-checkbox is-block is-info" id="chkBorder{{border.id}}" type="checkbox" name="chkBorder{{border.id}}">
                   <label for="chkBorder{{border.id}}">{{border.name}}</label>
                 </div>
-                </div>
+              </div>
             </div>
           </div>
 

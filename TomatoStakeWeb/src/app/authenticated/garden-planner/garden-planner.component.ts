@@ -41,6 +41,11 @@ export class GardenPlannerComponent extends ModalHandler implements OnInit {
     this.months = this.monthService.getMonths();
   }
 
+  onAnchorClick(location: string): void {
+    console.log(location);
+    window.location.hash = location;
+  }
+
   getJobs(): void {
     this.jobs = [];
     this.jobService.getJobs()
