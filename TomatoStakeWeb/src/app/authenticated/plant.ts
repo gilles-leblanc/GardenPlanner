@@ -10,5 +10,7 @@ export class Plant {
 
   constructor() {
     this.name = '';
+    this.locations = [];
+    this.jobs = [];
   }
 }

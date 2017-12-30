@@ -15,7 +15,7 @@ export class Job {
     this.id = id;
     this.name = name;
     this.description = description;
-    this.locations = locations;
+    this.locations = locations === null ? [] : locations;
     this.schedule = new JobSchedule(moment(schedule.startDate), moment(schedule.endDate));
   }
 }

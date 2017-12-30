@@ -31,6 +31,7 @@ export class GardenPlannerComponent extends ModalHandler implements OnInit {
               private monthService: MonthService) {
     super();
     this.registerModal('addJob');
+    this.registerModal('deleteJob');
   }
 
   ngOnInit(): void {
@@ -42,7 +43,6 @@ export class GardenPlannerComponent extends ModalHandler implements OnInit {
   }
 
   onAnchorClick(location: string): void {
-    console.log(location);
     window.location.hash = location;
   }
 
@@ -80,5 +80,15 @@ export class GardenPlannerComponent extends ModalHandler implements OnInit {
 
   onRemoved(job: Job): void {
     // ???
+    this.openModal('deleteJob');
+    this.alertService.alert('Removed job');
+  }
+
+  addJob(): void {
+    console.log('showMonth: ' + this.showMonth);
+
+    if (this.showMonth) {
+
+    }
   }
 }

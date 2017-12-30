@@ -9,9 +9,10 @@ import { AlertService } from './services/alert.service';
   selector: 'ts-alert',
   template: `
   <div *ngIf="isDisplayed" class="notification is-warning">
-    <button class="delete"></button>
+    <button class="delete" (click)="hide()"></button>
     {{message}}
   </div>`,
+  styles: [`div.notification { color: white; }`]
 })
 export class AlertComponent implements OnInit {
   private isDisplayed: boolean;
