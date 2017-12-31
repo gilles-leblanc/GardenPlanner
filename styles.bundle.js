@@ -66,7 +66,7 @@ exports.i(__webpack_require__("../../node_modules/css-loader/index.js?{\"sourceM
 exports.i(__webpack_require__("../../node_modules/css-loader/index.js?{\"sourceMap\":false,\"importLoaders\":1}!../../node_modules/postcss-loader/lib/index.js?{\"ident\":\"postcss\",\"plugins\":[null,null,null,null],\"sourceMap\":false}!../../../../../src/css/garden.css"), "");
 
 // module
-exports.push([module.i, "/* You can add global styles to this file, and also import other style files */\n\n", ""]);
+exports.push([module.i, "/* You can add global styles to this file, and also import other style files */\r\n\r\n", ""]);
 
 // exports
 
